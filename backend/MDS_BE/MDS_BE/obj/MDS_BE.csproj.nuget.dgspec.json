@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/maradascalu/Desktop/Facultate/ANUL_2/Semestrul 2/Metode de Dezvoltare Software/proiect/backend/MDS_BE/MDS_BE/MDS_BE.csproj": {}
+  },
+  "projects": {
+    "/Users/maradascalu/Desktop/Facultate/ANUL_2/Semestrul 2/Metode de Dezvoltare Software/proiect/backend/MDS_BE/MDS_BE/MDS_BE.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/maradascalu/Desktop/Facultate/ANUL_2/Semestrul 2/Metode de Dezvoltare Software/proiect/backend/MDS_BE/MDS_BE/MDS_BE.csproj",
+        "projectName": "MDS_BE",
+        "projectPath": "/Users/maradascalu/Desktop/Facultate/ANUL_2/Semestrul 2/Metode de Dezvoltare Software/proiect/backend/MDS_BE/MDS_BE/MDS_BE.csproj",
+        "packagesPath": "/Users/maradascalu/.nuget/packages/",
+        "outputPath": "/Users/maradascalu/Desktop/Facultate/ANUL_2/Semestrul 2/Metode de Dezvoltare Software/proiect/backend/MDS_BE/MDS_BE/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/maradascalu/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.407/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
