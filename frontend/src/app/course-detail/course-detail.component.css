@@ -1,0 +1,5 @@
+div > label:first-child {
+    height: 3em;
+    
+    color: #3f51b5;
+}

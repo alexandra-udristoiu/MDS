@@ -13,6 +13,9 @@ import { MaterialModule } from './_modules/material.module';
 import { MockModule } from './mock/mock.module';
 import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
+import { CoursesComponent } from './courses/courses.component';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { SignUpToCourseComponent } from './sign-up-to-course/sign-up-to-course.component';
 
 const mockModule = [MockModule];
 @NgModule({
@@ -20,6 +23,9 @@ const mockModule = [MockModule];
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    CoursesComponent,
+    CourseDetailComponent,
+    SignUpToCourseComponent,
   ],
   imports: [
     ...mockModule,
