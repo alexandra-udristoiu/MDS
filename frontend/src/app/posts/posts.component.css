@@ -1,0 +1,21 @@
+.create-button {
+    position: fixed;
+    bottom: 5%;
+    right: 2.5%;
+    background-color: #3f51b5;
+    padding: 0.2em 0.5em;
+    border-radius: 50%;
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    font-size: 2em;
+  }
+  
+  .create-button:hover {
+    background-color: #1b2e99;
+    cursor: pointer;
+  }
+  app-post-detail:hover {
+    cursor: pointer;
+  }

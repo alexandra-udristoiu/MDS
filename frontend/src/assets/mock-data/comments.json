@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "text": "Comentariu 1 pentru postarea 1",
+        "date": "11 May 2022",
+        "userId": 2,
+        "userName": "User 2",
+        "postId": 1
+    },
+    {
+        "id": 2,
+        "text": "Comentariu 2 pentru postarea 1",
+        "date": "11 May 2022",
+        "userId": 1,
+        "userName": "User 1",
+        "postId": 1
+    },
+    {
+        "id": 3,
+        "text": "Comentariu 1 pentru postarea 2",
+        "date": "11 May 2022",
+        "userId": 1,
+        "userName": "User 1",
+        "postId": 2
+    }
+]
