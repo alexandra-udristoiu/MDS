@@ -1,0 +1,23 @@
+<form [formGroup]='addOrganization' (ngSubmit)="onSubmit()">
+    <div>
+      <label for="first-name">University Name: </label>
+      <input id="first-name" type="text" formControlName="universityName">
+    </div>
+    <div>
+      <label for="last-name">Faculty Name: </label>
+      <input id="last-name" type="text" formControlName="facultyName">
+    </div>
+    <div>
+        <label for="last-name">City: </label>
+        <input id="last-name" type="text" formControlName="city">
+    </div>
+    <div>
+        <label for="last-name">Contact: </label>
+        <input id="last-name" type="text" formControlName="contact">
+    </div>
+  </form>
+  
+  <button type="submit" [disabled]="!addOrganization.valid" (click)="onSubmit()">Submit</button>
+  <div>
+    <a routerLink="/organizations">Go back to list of organizations</a>
+  </div>

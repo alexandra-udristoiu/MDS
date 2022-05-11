@@ -4,12 +4,14 @@ import {HttpRequest, HttpResponse} from '@angular/common/http';
 // Local imports
 import * as user from '../../assets/mock-data/users.json';
 import * as course from '../../assets/mock-data/courses.json';
+import * as organization from '../../assets/mock-data/organizations.json';
 
 import {User} from '../_models/user';
 
 
 let users: any[] = (user as any).default;
 let courses: any[] = (course as any).default;
+let organizations: any[] = (organization as any).default;
 
 
 const login = (request: HttpRequest<any>) => {
@@ -49,6 +51,24 @@ const getCourse = (request: HttpRequest<any>) => {
  
 };
 
+const getOrganizations = (request: HttpRequest<any>) => {
+  return of(new HttpResponse({
+    status: 200, body: organizations
+  }));
+};
+
+const getOrganization = (request: HttpRequest<any>) => {
+  const requestUrl = new URL(request.url);
+  const pathname = requestUrl.pathname;
+  const attributes = pathname.split("/");
+  const facultyName = attributes[attributes.length - 1];
+  
+  const organization = organizations.find(organization => organization.facultyName ===facultyName);
+  return of(new HttpResponse({
+    status: 200, body: organization
+  }));
+ 
+};
 
 export const selectHandler = (request: HttpRequest<any>) => {
   const requestUrl = new URL(request.url);
@@ -60,6 +80,12 @@ export const selectHandler = (request: HttpRequest<any>) => {
         return getCourses;
       }
       if(pathname.startsWith("/Courses")) {
+        return getCourse;
+      }
+      if(pathname.startsWith("/Organizations")) {
+        return getOrganizations;
+      }
+      if(pathname.startsWith("/Organizations")) {
         return getCourse;
       }
         return null;

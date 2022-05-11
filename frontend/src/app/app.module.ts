@@ -16,6 +16,9 @@ import { RegisterComponent } from './register/register.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { SignUpToCourseComponent } from './sign-up-to-course/sign-up-to-course.component';
+import { OrganizationsComponent } from './organizations/organizations.component';
+import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
+import { AddOrganizationComponent } from './add-organization/add-organization.component';
 
 const mockModule = [MockModule];
 @NgModule({
@@ -26,6 +29,9 @@ const mockModule = [MockModule];
     CoursesComponent,
     CourseDetailComponent,
     SignUpToCourseComponent,
+    OrganizationsComponent,
+    OrganizationDetailsComponent,
+    AddOrganizationComponent,
   ],
   imports: [
     ...mockModule,
