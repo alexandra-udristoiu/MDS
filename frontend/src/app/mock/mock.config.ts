@@ -38,6 +38,12 @@ const createPost = (request: HttpRequest<any>) => {
   }));
 };
 
+const updatePost = (request: HttpRequest<any>) => {
+  return of(new HttpResponse({
+    status: 200,
+  }));
+};
+
 const getPosts = (request: HttpRequest<any>) => {
   return of(new HttpResponse({
     status: 200, body: posts
@@ -103,6 +109,9 @@ export const selectHandler = (request: HttpRequest<any>) => {
 
         return null;
     case 'PUT':
+      if (pathname.startsWith("/Posts")) {
+        return updatePost;
+      }
       return null;
     case 'DELETE':
       return null;

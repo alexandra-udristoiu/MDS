@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from '../_models/post';
 import { AuthenticationService } from '../_services/authentication.service';
 import { PostService } from '../_services/post.service';
@@ -14,7 +15,8 @@ export class PostDetailsComponent implements OnInit {
 
   constructor(
     public postService: PostService,
-    public authService: AuthenticationService
+    public authService: AuthenticationService,
+    private router: Router,
   ) { 
     this.post = {} as Post;
   }
@@ -34,6 +36,10 @@ export class PostDetailsComponent implements OnInit {
       (error: any) => {
         console.log(error);
       });
+  }
+
+  editPost(): void {
+    this.router.navigate(['/edit-post', this.post.id], {queryParams: {returnUrl: this.router.url}});
   }
 
 }

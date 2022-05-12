@@ -24,6 +24,8 @@
         <mat-card-actions align="end">
             <button mat-button *ngIf="isMine" class="remove-button" (click)="removePost()">
                 <mat-icon>remove_circle</mat-icon>Remove</button>
+            <button mat-button *ngIf="isMine" class="edit-button" (click)="editPost()">
+                <mat-icon>edit</mat-icon>Edit</button>
         </mat-card-actions>
     </mat-card>
 </div>

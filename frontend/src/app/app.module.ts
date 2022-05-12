@@ -19,6 +19,7 @@ import { CommentComponent } from './comment/comment.component';
 import { CommentCreateComponent } from './comment-create/comment-create.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 const mockModule = [MockModule];
 @NgModule({
@@ -32,6 +33,7 @@ const mockModule = [MockModule];
     CommentCreateComponent,
     CreatePostComponent,
     PostDetailsComponent,
+    EditPostComponent,
   ],
   imports: [
     ...mockModule,
