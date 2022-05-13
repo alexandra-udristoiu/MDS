@@ -1,0 +1,22 @@
+<mat-card id="{{comment.id}}" class="comment" [ngClass]="{ 'mine': isMine }" *ngIf="comment.id">
+    <mat-card-subtitle>
+        <div class="userName">
+            <mat-icon>person_pin</mat-icon>
+            <span>{{comment.userName}}</span>
+        </div>
+    </mat-card-subtitle>
+    <mat-card-content>
+        <p>
+            {{comment.text}}
+        </p>
+    </mat-card-content>
+
+    <mat-card-subtitle align="end">
+        {{comment.date}}
+    </mat-card-subtitle>
+
+    <mat-card-actions align="end">
+        <button mat-button *ngIf="isMine" class="remove-button" (click)="removeComment()">
+            <mat-icon>remove_circle</mat-icon>Remove</button>
+    </mat-card-actions>
+</mat-card>

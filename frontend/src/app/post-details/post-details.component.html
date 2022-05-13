@@ -1,0 +1,31 @@
+<div *ngIf="post.id">
+    <mat-card id="{{post.id}}" class="post" [ngClass]="{ 'mine': isMine }">
+        <mat-card-title routerLink="/posts/{{post.id}}">{{post.title}}</mat-card-title>
+        <mat-card-subtitle>
+            <div class="userName">
+                <mat-icon>person_pin</mat-icon>
+                <span>{{post.userName}}</span>
+            </div>
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+            <span class="tag" *ngFor="let tag of post.tags">
+                #{{tag}}
+            </span>
+        </mat-card-subtitle>
+        <mat-card-content>
+            <p>
+                {{post.text}}
+            </p>
+        </mat-card-content>
+
+        <mat-card-subtitle align="end">
+            {{post.date}}
+        </mat-card-subtitle>
+        <mat-card-actions align="end">
+            <button mat-button *ngIf="isMine" class="remove-button" (click)="removePost()">
+                <mat-icon>remove_circle</mat-icon>Remove</button>
+            <button mat-button *ngIf="isMine" class="edit-button" (click)="editPost()">
+                <mat-icon>edit</mat-icon>Edit</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,30 @@
+<div  class = "container">
+    <h2>Create post</h2>
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill" class="field">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Title" formControlName="title" required>
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="fill" class="field">
+            <mat-label>Text</mat-label>
+            <textarea matInput formControlName="text" required>
+                </textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="fill" class = "field">
+            <mat-label>Tags</mat-label>
+            <mat-chip-list #chipList aria-label="Tag selection">
+                <mat-chip *ngFor="let tag of tags" (removed)="removeTag(tag)">
+                    {{tag}}
+                    <button matChipRemove>
+                        <mat-icon>cancel</mat-icon>
+                    </button>
+                </mat-chip>
+                <input placeholder="New tag..." [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" 
+                (matChipInputTokenEnd)="addTag($event)">
+            </mat-chip-list>
+        </mat-form-field>
+    </form>
+    <button mat-button (click)="onSubmit()" class = "submit-button">Submit</button>
+</div>
