@@ -3,15 +3,26 @@ import {of} from 'rxjs';
 import {HttpRequest, HttpResponse} from '@angular/common/http';
 // Local imports
 import * as user from '../../assets/mock-data/users.json';
+
+import * as course from '../../assets/mock-data/courses.json';
+import * as organization from '../../assets/mock-data/organizations.json';
+
 import * as post from '../../assets/mock-data/posts.json';
 import * as comment from '../../assets/mock-data/comments.json';
 
 
+
 import {User} from '../_models/user';
 
+
 let users: any[] = (user as any).default;
+
+let courses: any[] = (course as any).default;
+let organizations: any[] = (organization as any).default;
+
 let posts: any[] = (post as any).default;
 let comments: any[] = (comment as any).default;
+
 
 
 const login = (request: HttpRequest<any>) => {
@@ -30,6 +41,45 @@ const register = (request: HttpRequest<any>) => {
     return of(new HttpResponse({
       status: 200,
     }));
+};
+
+
+const getCourses = (request: HttpRequest<any>) => {
+  return of(new HttpResponse({
+    status: 200, body:courses
+  }));
+};
+
+const getCourse = (request: HttpRequest<any>) => {
+  const requestUrl = new URL(request.url);
+  const pathname = requestUrl.pathname;
+  const attributes = pathname.split("/");
+  const name = attributes[attributes.length - 1];
+  
+  const course = courses.find(course => course.name ===name);
+  return of(new HttpResponse({
+    status: 200, body: course
+  }));
+ 
+};
+
+const getOrganizations = (request: HttpRequest<any>) => {
+  return of(new HttpResponse({
+    status: 200, body: organizations
+  }));
+};
+
+const getOrganization = (request: HttpRequest<any>) => {
+  const requestUrl = new URL(request.url);
+  const pathname = requestUrl.pathname;
+  const attributes = pathname.split("/");
+  const facultyName = attributes[attributes.length - 1];
+  
+  const organization = organizations.find(organization => organization.facultyName ===facultyName);
+  return of(new HttpResponse({
+    status: 200, body: organization
+  }));
+ 
 };
 
 const createPost = (request: HttpRequest<any>) => {
@@ -81,6 +131,20 @@ export const selectHandler = (request: HttpRequest<any>) => {
   const pathname = requestUrl.pathname;
   switch (request.method) {
     case 'GET':
+
+      if (pathname === "/Courses") {
+        return getCourses;
+      }
+      if(pathname.startsWith("/Courses")) {
+        return getCourse;
+      }
+      if(pathname.startsWith("/Organizations")) {
+        return getOrganizations;
+      }
+      if(pathname.startsWith("/Organizations")) {
+        return getCourse;
+      }
+
         if (pathname == "/Posts") {
           return getPosts;
         }
@@ -92,6 +156,7 @@ export const selectHandler = (request: HttpRequest<any>) => {
         if (pathname.startsWith("/Posts")) {
           return getPost
         }
+
 
         return null;
     case 'POST':

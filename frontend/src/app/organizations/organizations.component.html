@@ -1,0 +1,12 @@
+<h2>Organizations</h2>
+<ul class="organization">
+  <li *ngFor="let organization of organizations">
+    <a routerLink="/organizations/{{organization.facultyName}}">
+        <span class="id">{{organization.id}}</span><span [outerHTML]="organization.facultyName"></span>
+    </a>
+  </li>
+</ul>
+<div>
+  <a appHighlight routerLink="/add-organization">Add your organization here!</a>
+</div>
+

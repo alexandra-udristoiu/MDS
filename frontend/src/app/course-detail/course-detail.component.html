@@ -1,0 +1,27 @@
+<div *ngIf="course">
+
+    <h2>{{course.name | uppercase}} Details</h2>
+    <div>
+      <label>Id: </label>
+      <label>{{course.id}}</label>
+    </div>
+    <div>
+      <label for="organization-name">Course Name: </label>
+      <label>{{course.name}} </label>
+    </div>
+    <div>
+        <label for="university-name">Duration: </label>
+        <label>{{course.duration}} </label><label>hours</label>
+    </div>
+    <div>
+      <label for="location">Description: </label>
+      <label>{{course.description}} </label>
+    </div>
+  </div>
+  <div>
+    <a appFont routerLink="/sign-up-to-course">Sign up to this course!</a>
+  </div>
+
+  
+ 
+  

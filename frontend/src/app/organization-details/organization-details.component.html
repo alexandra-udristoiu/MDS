@@ -1,0 +1,22 @@
+<div *ngIf="organization">
+
+    <h2>{{organization.facultyName | uppercase}} Details</h2>
+    <div><span>id: </span>{{organization.id}}</div>
+    <div>
+      <label for="organization-name">Faculty Name: </label>
+      <label>{{organization.facultyName}} </label>
+    </div>
+    <div>
+        <label for="university-name">University Name: </label>
+        <label>{{organization.universityName}} </label>
+    </div>
+    <div>
+      <label for="location">City: </label>
+      <label>{{organization.city}} </label>
+    </div>
+    <div>
+      <label for="contact">University Name: </label>
+      <label>{{organization.contact}} </label>
+    </div>
+  </div>
+

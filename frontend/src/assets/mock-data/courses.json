@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Course1",
+        "id": 1,
+        "description": "Description course 1",
+        "duration": 120
+    },
+    {
+        "name": "Course2",
+        "id": 2,
+        "description": "Description course 2",
+        "duration": 180
+    }
+]
