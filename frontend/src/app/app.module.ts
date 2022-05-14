@@ -13,6 +13,7 @@ import { MaterialModule } from './_modules/material.module';
 import { MockModule } from './mock/mock.module';
 import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
+
 import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { SignUpToCourseComponent } from './sign-up-to-course/sign-up-to-course.component';
@@ -20,18 +21,37 @@ import { OrganizationsComponent } from './organizations/organizations.component'
 import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
 import { AddOrganizationComponent } from './add-organization/add-organization.component';
 
+import { PostsComponent } from './posts/posts.component';
+import { PostPageComponent } from './post-page/post-page.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentCreateComponent } from './comment-create/comment-create.component';
+import { CreatePostComponent } from './create-post/create-post.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
+
+
 const mockModule = [MockModule];
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+
     CoursesComponent,
     CourseDetailComponent,
     SignUpToCourseComponent,
     OrganizationsComponent,
     OrganizationDetailsComponent,
     AddOrganizationComponent,
+
+    PostsComponent,
+    PostPageComponent,
+    CommentComponent,
+    CommentCreateComponent,
+    CreatePostComponent,
+    PostDetailsComponent,
+    EditPostComponent,
+
   ],
   imports: [
     ...mockModule,
@@ -43,6 +63,8 @@ const mockModule = [MockModule];
     ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

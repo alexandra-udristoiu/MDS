@@ -1,0 +1,14 @@
+.comment{
+    border-radius: 15px;
+    margin: 0 7% 1% 7%;
+    background-color: rgb(228, 236, 252);   
+}
+
+.mine {
+    background-color: rgb(176, 199, 247);   
+}
+
+.userName {
+    display: flex;
+    font-weight: 450;
+}
