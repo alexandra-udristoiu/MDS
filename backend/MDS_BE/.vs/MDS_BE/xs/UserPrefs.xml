@@ -1,4 +1,30 @@
 ﻿<Properties StartupConfiguration="{AF391B55-4659-4700-8CAE-78A18F74E26A}|Default">
-  <MonoDevelop.Ide.ItemProperties.MDS__BE FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.MDS__BE PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MDS_BE/Entities/DatabaseContext.cs">
+    <Files>
+      <File FileName="MDS_BE/Startup.cs" Line="111" Column="1" />
+      <File FileName="MDS_BE/Entities/DatabaseContext.cs" Line="22" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MDS_BE" expanded="True">
+            <Node name="MDS_BE" expanded="True">
+              <Node name="Entities" expanded="True">
+                <Node name="DatabaseContext.cs" selected="True" />
+              </Node>
+              <Node name="Model" expanded="True" />
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

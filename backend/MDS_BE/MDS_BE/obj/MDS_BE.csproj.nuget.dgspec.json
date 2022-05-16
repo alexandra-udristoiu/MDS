@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/maradascalu/Desktop/Facultate/ANUL_2/Semestrul 2/Metode de Dezvoltare Software/proiect/backend/MDS_BE/MDS_BE/MDS_BE.csproj": {}
+    "/Users/maradascalu/Desktop/Facultate/ANUL_2/Semestrul_2/Metode de Dezvoltare Software/proiect/backend/MDS_BE/MDS_BE/MDS_BE.csproj": {}
   },
   "projects": {
-    "/Users/maradascalu/Desktop/Facultate/ANUL_2/Semestrul 2/Metode de Dezvoltare Software/proiect/backend/MDS_BE/MDS_BE/MDS_BE.csproj": {
+    "/Users/maradascalu/Desktop/Facultate/ANUL_2/Semestrul_2/Metode de Dezvoltare Software/proiect/backend/MDS_BE/MDS_BE/MDS_BE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/maradascalu/Desktop/Facultate/ANUL_2/Semestrul 2/Metode de Dezvoltare Software/proiect/backend/MDS_BE/MDS_BE/MDS_BE.csproj",
+        "projectUniqueName": "/Users/maradascalu/Desktop/Facultate/ANUL_2/Semestrul_2/Metode de Dezvoltare Software/proiect/backend/MDS_BE/MDS_BE/MDS_BE.csproj",
         "projectName": "MDS_BE",
-        "projectPath": "/Users/maradascalu/Desktop/Facultate/ANUL_2/Semestrul 2/Metode de Dezvoltare Software/proiect/backend/MDS_BE/MDS_BE/MDS_BE.csproj",
+        "projectPath": "/Users/maradascalu/Desktop/Facultate/ANUL_2/Semestrul_2/Metode de Dezvoltare Software/proiect/backend/MDS_BE/MDS_BE/MDS_BE.csproj",
         "packagesPath": "/Users/maradascalu/.nuget/packages/",
-        "outputPath": "/Users/maradascalu/Desktop/Facultate/ANUL_2/Semestrul 2/Metode de Dezvoltare Software/proiect/backend/MDS_BE/MDS_BE/obj/",
+        "outputPath": "/Users/maradascalu/Desktop/Facultate/ANUL_2/Semestrul_2/Metode de Dezvoltare Software/proiect/backend/MDS_BE/MDS_BE/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/maradascalu/.config/NuGet/NuGet.Config"
@@ -37,6 +37,54 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.OpenApi": {
+              "target": "Package",
+              "version": "[1.3.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,7 +103,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.407/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.408/RuntimeIdentifierGraph.json"
         }
       }
     }
