@@ -1,5 +1,6 @@
 ﻿using MDS_BE.Entities;
-using Microsoft.AspNetCore.Authentication;
+using MDS_BE.Managers;
+using MDS_BE.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,7 +12,6 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
-using System.Runtime.ExceptionServices;
 using System.Text;
 
 namespace MDS_BE
@@ -28,6 +28,14 @@ namespace MDS_BE
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "_allowSpecificOrigins",
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("localhost:4200", "http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+                                  });
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -103,12 +111,20 @@ namespace MDS_BE
                 options.AddPolicy("Student", policy => policy.RequireRole("Student").RequireAuthenticatedUser().AddAuthenticationSchemes("AuthScheme").Build());
                 options.AddPolicy("Prof", policy => policy.RequireRole("Prof").RequireAuthenticatedUser().AddAuthenticationSchemes("AuthScheme").Build());
                 options.AddPolicy("ALL", policy => policy.RequireAuthenticatedUser().AddAuthenticationSchemes("AuthScheme").Build());
+                options.AddPolicy("Admin", policy => policy.RequireRole("Admin").RequireAuthenticatedUser().AddAuthenticationSchemes("AuthScheme").Build());
             });
 
             // Adaugam middleware de parsare a obiectelor JSON
             services.AddControllersWithViews()
                     .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
+
+           services.AddTransient<IUserRepository, UserRepository>();
+
+            services.AddTransient<IAuthenticationManager, AuthenticationManager>();
+            services.AddTransient<ITokenManager, TokenManager>();
+            services.AddTransient<IUserManager, UserManager>();
+         
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -118,7 +134,7 @@ namespace MDS_BE
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FinalProject v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MDS_BE v1"));
             }
 
             app.UseHttpsRedirection();
@@ -127,6 +143,8 @@ namespace MDS_BE
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseCors("_allowSpecificOrigins");
 
             app.UseEndpoints(endpoints =>
             {
