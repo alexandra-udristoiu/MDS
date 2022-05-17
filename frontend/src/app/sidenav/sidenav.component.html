@@ -1,0 +1,22 @@
+<mat-nav-list *ngIf="authService.$isLoggedIn">
+    <a mat-list-item routerLink="/dashboard" (click)="onSidenavClose()">
+        <mat-icon>home</mat-icon>
+        <span class="nav-caption">Dashboard</span>
+    </a>
+    <a mat-list-item routerLink="/posts" (click)="onSidenavClose()">
+        <mat-icon>list</mat-icon>
+        <span class="nav-caption">Posts</span>
+    </a>
+    <a mat-list-item routerLink="/organizations" (click)="onSidenavClose()">
+        <mat-icon>list</mat-icon>
+        <span class="nav-caption">Organizations</span>
+    </a>
+    <a mat-list-item routerLink="/courses" (click)="onSidenavClose()">
+        <mat-icon>list</mat-icon>
+        <span class="nav-caption">Courses</span>
+    </a>
+    <a mat-list-item (click)="logOut()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span class="nav-caption">Logout</span>
+    </a>
+</mat-nav-list>

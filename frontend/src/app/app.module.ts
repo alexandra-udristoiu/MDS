@@ -28,6 +28,9 @@ import { CommentCreateComponent } from './comment-create/comment-create.componen
 import { CreatePostComponent } from './create-post/create-post.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { HeaderComponent } from './header/header.component';
+import { LayoutComponent } from './layout/layout.component';
 
 
 const mockModule = [MockModule];
@@ -51,6 +54,9 @@ const mockModule = [MockModule];
     CreatePostComponent,
     PostDetailsComponent,
     EditPostComponent,
+    SidenavComponent,
+    HeaderComponent,
+    LayoutComponent,
 
   ],
   imports: [
