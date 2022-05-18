@@ -1,4 +1,36 @@
 ﻿<Properties StartupConfiguration="{AF391B55-4659-4700-8CAE-78A18F74E26A}|Default">
-  <MonoDevelop.Ide.ItemProperties.MDS__BE FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.MDS__BE PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MDS_BE/Controllers/UserController.cs">
+    <Files>
+      <File FileName="MDS_BE/Entities/UserRole.cs" Line="10" Column="2" />
+      <File FileName="MDS_BE/Migrations/20220516195044_addred UserRole table.cs" />
+      <File FileName="MDS_BE/Startup.cs" Line="133" Column="92" />
+      <File FileName="MDS_BE/Controllers/UserController.cs" Line="1" Column="9" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MDS_BE" expanded="True">
+            <Node name="MDS_BE" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="UserController.cs" selected="True" />
+              </Node>
+              <Node name="Entities" expanded="True" />
+              <Node name="Managers" expanded="True" />
+              <Node name="Migrations" expanded="True" />
+              <Node name="Model" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Repositories" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
