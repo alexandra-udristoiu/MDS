@@ -28,9 +28,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [CheckGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [CheckGuard] },
   { path: 'posts', component: PostsComponent, canActivate: [AuthGuard]},
-  { path: 'posts/:postId', component: PostPageComponent, canActivate: [AuthGuard]},
+  { path: 'post/:postId', component: PostPageComponent, canActivate: [AuthGuard]},
   { path: "create-post", component: CreatePostComponent, canActivate: [AuthGuard]},
-  { path: "edit-post/:postId", component: EditPostComponent, canActivate: [AuthGuard]}
+  { path: "edit-post/:postId", component: EditPostComponent, canActivate: [AuthGuard]},
   
 
 ];
