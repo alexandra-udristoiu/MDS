@@ -42,4 +42,8 @@ export class PostDetailsComponent implements OnInit {
     this.router.navigate(['/edit-post', this.post.id], {queryParams: {returnUrl: this.router.url}});
   }
 
+  goToTag(tag): void {
+    this.router.navigate(['/posts'], {queryParams: {tag: tag}});
+  }
+
 }
