@@ -28,6 +28,7 @@ import { CommentCreateComponent } from './comment-create/comment-create.componen
 import { CreatePostComponent } from './create-post/create-post.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const mockModule = [MockModule];
@@ -37,6 +38,7 @@ const mockModule = [MockModule];
     LoginComponent,
     RegisterComponent,
 
+    DashboardComponent,
     CoursesComponent,
     CourseDetailComponent,
     SignUpToCourseComponent,

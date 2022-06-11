@@ -5,6 +5,7 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CheckGuard } from './guards/check.guard';
 import { LoginComponent } from './login/login.component';
@@ -17,8 +18,7 @@ import { SignUpToCourseComponent } from './sign-up-to-course/sign-up-to-course.c
 import { AddOrganizationComponent } from './add-organization/add-organization.component';
 
 const routes: Routes = [
-
-  
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'courses', component: CoursesComponent, canActivate: [AuthGuard]},
   { path: 'courses/:name', component: CourseDetailComponent, canActivate: [AuthGuard]},
   { path: 'sign-up-to-course', component: SignUpToCourseComponent, canActivate: [AuthGuard]},
@@ -30,9 +30,8 @@ const routes: Routes = [
   { path: 'posts', component: PostsComponent, canActivate: [AuthGuard]},
   { path: 'posts/:postId', component: PostPageComponent, canActivate: [AuthGuard]},
   { path: "create-post", component: CreatePostComponent, canActivate: [AuthGuard]},
-  { path: "edit-post/:postId", component: EditPostComponent, canActivate: [AuthGuard]}
-  
-
+  { path: "edit-post/:postId", component: EditPostComponent, canActivate: [AuthGuard]},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
