@@ -4,4 +4,5 @@ export interface Course {
     duration: number;
     description: string;
     auxiliaryMaterials: boolean;
+    subscribed: boolean;
 }

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,9 +30,12 @@ import { CommentCreateComponent } from './comment-create/comment-create.componen
 import { CreatePostComponent } from './create-post/create-post.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HeaderComponent } from './header/header.component';
 import { LayoutComponent } from './layout/layout.component';
+import { HomeworkComponent } from './homework/homework.component';
+import { AddHomeworkComponent } from './add-homework/add-homework.component';
 
 
 const mockModule = [MockModule];
@@ -40,6 +45,7 @@ const mockModule = [MockModule];
     LoginComponent,
     RegisterComponent,
 
+    DashboardComponent,
     CoursesComponent,
     CourseDetailComponent,
     SignUpToCourseComponent,
@@ -57,10 +63,14 @@ const mockModule = [MockModule];
     SidenavComponent,
     HeaderComponent,
     LayoutComponent,
+    HomeworkComponent,
+    AddHomeworkComponent,
 
   ],
   imports: [
     ...mockModule,
+    NgxSpinnerModule,
+    MatStepperModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -71,6 +81,7 @@ const mockModule = [MockModule];
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

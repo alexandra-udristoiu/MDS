@@ -12,16 +12,22 @@ import { LoginResult } from '../_models/login_result';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
     private isLoggedIn: BehaviorSubject<boolean>;
+    private isAdmin: BehaviorSubject<boolean>;
 
     constructor(
         private router: Router,
         private http: HttpClient
     ) {
         this.isLoggedIn = new BehaviorSubject<boolean>(!!localStorage.getItem('token'));
+        this.isAdmin = new BehaviorSubject<boolean>(this.user?.roleId === 'Profesor');
     }
 
     public get $isLoggedIn(): boolean {
         return this.isLoggedIn.value;
+    }
+
+    public get $isAdmin(): boolean {
+        return this.isAdmin.value;
     }
 
     public get token(): string {
@@ -56,6 +62,10 @@ export class AuthenticationService {
                 localStorage.setItem('user', JSON.stringify(result.user));
                 localStorage.setItem('token', result.token);
                 this.isLoggedIn.next(true);
+
+                if (this.user.roleId === 'Profesor') {
+                    this.isAdmin.next(true);
+                }
                 return result;
             }));
     }
@@ -66,6 +76,7 @@ export class AuthenticationService {
         localStorage.removeItem('user');
 
         this.isLoggedIn.next(false);
+        this.isAdmin.next(false);
         this.router.navigate(['/login']);
     }
 

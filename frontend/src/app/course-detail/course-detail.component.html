@@ -1,5 +1,4 @@
 <div *ngIf="course">
-
     <h2>{{course.name | uppercase}} Details</h2>
     <div>
       <label>Id: </label>
@@ -17,9 +16,9 @@
       <label for="location">Description: </label>
       <label>{{course.description}} </label>
     </div>
-  </div>
-  <div>
-    <a appFont routerLink="/sign-up-to-course">Sign up to this course!</a>
+    <div *ngIf="!authService.$isAdmin">
+      <button mat-raised-button color="primary" [disabled]="course.subscribed" routerLink="/sign-up-to-course">{{ course.subscribed ? 'Already subscribed' : 'Sign up to this course' }}</button>
+    </div>
   </div>
 
   

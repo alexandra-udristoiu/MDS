@@ -26,8 +26,14 @@ let comments: any[] = (comment as any).default;
 
 
 const login = (request: HttpRequest<any>) => {
-    const user = users[0];
+    const user = users.find(u => u.userName === request.body.email);
     const token = "token";
+    if (!user) {
+      return of(new HttpResponse({
+        status: 404
+      }));
+    }
+
     const result = {
         user,
         token,
@@ -38,9 +44,18 @@ const login = (request: HttpRequest<any>) => {
 };
 
 const register = (request: HttpRequest<any>) => {
-    return of(new HttpResponse({
-      status: 200,
-    }));
+  const userName = request.body.email;
+  const user = {
+    userName: userName,
+    id: Date.now(),
+    name: userName,
+    roleId: request.body.roleId,
+  };
+  users.push(user);
+
+  return of(new HttpResponse({
+    status: 200,
+  }));
 };
 
 
@@ -75,7 +90,7 @@ const getOrganization = (request: HttpRequest<any>) => {
   const attributes = pathname.split("/");
   const facultyName = attributes[attributes.length - 1];
   
-  const organization = organizations.find(organization => organization.facultyName ===facultyName);
+  const organization = organizations.find(organization => organization.facultyName === facultyName);
   return of(new HttpResponse({
     status: 200, body: organization
   }));
@@ -138,11 +153,11 @@ export const selectHandler = (request: HttpRequest<any>) => {
       if(pathname.startsWith("/Courses")) {
         return getCourse;
       }
-      if(pathname.startsWith("/Organizations")) {
+      if(pathname === "/Organizations") {
         return getOrganizations;
       }
       if(pathname.startsWith("/Organizations")) {
-        return getCourse;
+        return getOrganization;
       }
 
         if (pathname == "/Posts") {

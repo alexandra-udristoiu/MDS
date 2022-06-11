@@ -1,0 +1,6 @@
+<h2>Top Posts</h2>
+<div class="posts-menu">
+    <a *ngFor="let post of posts" routerLink="/posts/{{post.id}}">
+        {{post.title}}
+    </a>
+</div>
