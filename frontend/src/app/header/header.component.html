@@ -1,0 +1,10 @@
+<mat-toolbar *ngIf="authService.$isLoggedIn">
+    <div>
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+        <a routerLink="/dashboard">Dashboard</a>
+    </div>
+</mat-toolbar>
