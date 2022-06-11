@@ -10,11 +10,11 @@ namespace MDS_BE.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UsersController : ControllerBase
+    public class UserController : ControllerBase
     {
         public readonly IUserManager manager;
 
-        public UsersController(IUserManager usersManager)
+        public UserController(IUserManager usersManager)
         {
             this.manager = usersManager;
         }
