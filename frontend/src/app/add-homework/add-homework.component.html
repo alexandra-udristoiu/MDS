@@ -1,0 +1,61 @@
+<mat-card class="homework">
+    <h2>
+        Add Homework
+    </h2>
+    <mat-stepper orientation="vertical" #stepper>
+        <mat-step>
+            <form [formGroup]="hwForm">
+            <ng-template matStepLabel>Enter homework title</ng-template>
+            <mat-form-field appearance="fill">
+                <mat-label>Title</mat-label>
+                <input matInput placeholder="First homework" formControlName="title" required>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            <form [formGroup]="hwForm">
+            <ng-template matStepLabel>Enter a description</ng-template>
+            <mat-form-field appearance="fill">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="text" placeholder="Sample description" required></textarea>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            <form [formGroup]="hwForm">
+            <ng-template matStepLabel>Upload file</ng-template>
+            <mat-form-field appearance="fill">
+                <input hidden type="text" matInput>
+                <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+    
+                <div class="file-upload">
+                    {{fileName || "No file uploaded yet."}}
+                    <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+                        <mat-icon>attach_file</mat-icon>
+                    </button>
+                </div>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+            <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+            <button mat-button (click)="onSubmit()" class="submit-button">Submit</button>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</mat-card>

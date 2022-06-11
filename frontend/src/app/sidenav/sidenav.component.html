@@ -15,6 +15,10 @@
         <mat-icon>list</mat-icon>
         <span class="nav-caption">Courses</span>
     </a>
+    <a mat-list-item routerLink="/homework" (click)="onSidenavClose()">
+        <mat-icon>assignment</mat-icon>
+        <span class="nav-caption">Homework</span>
+    </a>
     <a mat-list-item (click)="logOut()">
         <mat-icon>exit_to_app</mat-icon>
         <span class="nav-caption">Logout</span>

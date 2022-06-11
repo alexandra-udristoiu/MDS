@@ -2,6 +2,7 @@
     {
         "userName": "User1",
         "id": 1,
-        "name": "user"
+        "name": "user",
+        "roleId": "Student"
     }
 ]
