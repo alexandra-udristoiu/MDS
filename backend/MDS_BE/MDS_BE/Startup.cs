@@ -119,11 +119,19 @@ namespace MDS_BE
                     .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
 
-           services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IPostRepository, PostRepository>();
+            services.AddTransient<ICommentRepository, CommentRepository>();
+            services.AddTransient<IOrganizationsRepository, OrganizationsRepository>();
+            services.AddTransient<IRegisterRepository, RegisterRepository>();
 
             services.AddTransient<IAuthenticationManager, AuthenticationManager>();
             services.AddTransient<ITokenManager, TokenManager>();
             services.AddTransient<IUserManager, UserManager>();
+            services.AddTransient<IPostManager, PostManager>();
+            services.AddTransient<ICommentManager, CommentManager>();
+            services.AddTransient<IOrganizationManager, OrganizationManager>();
+            services.AddTransient<IRegisterManager, RegisterManager>();
          
         }
 
