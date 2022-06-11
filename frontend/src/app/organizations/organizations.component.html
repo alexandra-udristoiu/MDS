@@ -12,7 +12,7 @@
   </mat-grid-tile>
 </mat-grid-list>
 
-<div *ngIf="authService.$isAdmin">
-  <a appHighlight routerLink="/add-organization">Add your organization here!</a>
+<div *ngIf="authService.$isAdmin" class="add-organization">
+  <button mat-raised-button color="primary" routerLink="/add-organization">Add your organization here!</button>
 </div>
 

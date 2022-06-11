@@ -13,6 +13,12 @@ mat-card {
   height: 60%;
 }
 
+.add-organization {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .organization li a {
     text-decoration: none;
     color: black;
