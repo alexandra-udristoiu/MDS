@@ -5,5 +5,33 @@
         "facultyName": "FMI",
         "city": "Bucharest",
         "contact": "fmi@info.ro"
+    },
+    {
+        "id": 2,
+        "universityName": "Bucharest University",
+        "facultyName": "FMI 1",
+        "city": "Bucharest",
+        "contact": "fmi1@info.ro"
+    },
+    {
+        "id": 3,
+        "universityName": "Bucharest University",
+        "facultyName": "FMI 2",
+        "city": "Bucharest",
+        "contact": "fmi2@info.ro"
+    },
+    {
+        "id": 4,
+        "universityName": "Bucharest University",
+        "facultyName": "FMI 3",
+        "city": "Bucharest",
+        "contact": "fmi3@info.ro"
+    },
+    {
+        "id": 4,
+        "universityName": "Bucharest University",
+        "facultyName": "FMI 3",
+        "city": "Bucharest",
+        "contact": "fmi3@info.ro"
     }
 ]

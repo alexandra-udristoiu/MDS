@@ -1,22 +1,19 @@
-.organization {
-    margin: 0 0 2em 0;
-    list-style-type: none;
-    padding: 0;
-    width: 15em;
-  }
-.organization li {
-    cursor: pointer;
-    position: relative;
-    left: 0;
-    background-color: #EEE;
-    margin: .5em;
-    /* padding: 0.5em 0; */
-    /* height: 2.5em; */
-    width: 25em;
-    border-radius: 4px;
-  }
+mat-grid-list {
+  margin: 0 7% 1% 7%; 
+}
 
-.organization li a{
+mat-grid-tile {
+  cursor: pointer;
+  background-color: #a8b5f8;
+  border-radius: 4px;
+}
+
+mat-card {
+  width: 80%;
+  height: 60%;
+}
+
+.organization li a {
     text-decoration: none;
     color: black;
 }

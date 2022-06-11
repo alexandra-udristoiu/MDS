@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -80,6 +81,7 @@ const mockModule = [MockModule];
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

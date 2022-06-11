@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Organization } from '../_models/organization';
 import { OrganizationService } from '../_services/organization.service';
 import { MessageService } from '../_services/message.service';
+import { AuthenticationService } from '../_services/authentication.service';
 
 @Component({
   selector: 'app-organizations',
@@ -13,7 +14,11 @@ export class OrganizationsComponent implements OnInit {
   organizations: Organization[] = [];
   selectedOrganization?: Organization;
 
-  constructor(private organizationService : OrganizationService, private messageService: MessageService) { }
+  constructor(
+    private organizationService : OrganizationService, 
+    private messageService: MessageService,
+    public authService: AuthenticationService,
+  ) { }
 
   ngOnInit(): void {
     this.getOrganizations();
