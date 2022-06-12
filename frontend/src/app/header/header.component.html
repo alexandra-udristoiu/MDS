@@ -1,7 +1,7 @@
 <mat-toolbar *ngIf="authService.$isLoggedIn">
     <div>
         <button mat-icon-button (click)="onToggleSidenav()">
-            <mat-icon>menu</mat-icon>
+            <mat-icon class="nav-font">menu</mat-icon>
         </button>
     </div>
     <div>
@@ -9,5 +9,5 @@
     </div>
     <span class="spacer"></span>
     <span class="user-name">{{authService.user.userName}}</span>
-    <mat-icon>face</mat-icon>
+    <mat-icon class="nav-font">face</mat-icon>
 </mat-toolbar>

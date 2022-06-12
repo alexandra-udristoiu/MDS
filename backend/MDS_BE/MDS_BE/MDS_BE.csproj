@@ -21,6 +21,8 @@
     <None Remove="Swashbuckle.AspNetCore.SwaggerUI" />
     <None Remove="Swashbuckle.AspNetCore" />
     <None Remove="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+    <None Remove="Resources\" />
+    <None Remove="Resources\users_profile_pictures\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -28,6 +30,8 @@
     <Folder Include="Managers\" />
     <Folder Include="Repositories\" />
     <Folder Include="Model\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\users_profile_pictures\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.11" />
