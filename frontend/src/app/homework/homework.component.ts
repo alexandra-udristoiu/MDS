@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Post } from '../_models/post';
-import { PostService } from '../_services/post.service';
+import { Hw } from '../_models/hw';
+import { HwService } from '../_services/hw.service';
 import { AuthenticationService } from '../_services/authentication.service';
 
 @Component({
@@ -11,18 +11,18 @@ import { AuthenticationService } from '../_services/authentication.service';
 })
 export class HomeworkComponent implements OnInit {
 
-  posts: Post[] = []
+  hw: Hw[] = []
 
   constructor(
     private router: Router,
-    private postService: PostService,
+    private hwService: HwService,
     public authService: AuthenticationService,
   ) {}
 
   ngOnInit(): void {
-    this.postService.getPosts().subscribe(
-      (posts : Post[]) => {
-        this.posts = posts;
+    this.hwService.getHomework().subscribe(
+      (hw : Hw[]) => {
+        this.hw = hw;
       },
       (error: any) => {
         console.log(error);

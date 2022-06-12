@@ -42,3 +42,12 @@ mat-toolbar{
         border-radius: 0px;
     }
 }
+
+.nav-font {
+    color: white;
+    padding-left: 0.1em;
+}
+.nav-font::hover {
+    color: white;
+    cursor: pointer;
+}

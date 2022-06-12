@@ -1,3 +1,7 @@
 app-post-detail:hover {
   cursor: pointer;
 }
+
+h1 {
+  text-indent: 45%;
+}
