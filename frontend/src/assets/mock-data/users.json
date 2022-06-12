@@ -1,7 +1,9 @@
 [
     {
-        "userName": "User1",
+        "username": "User1",
         "id": 1,
-        "name": "user"
+        "name": "user",
+        "lastName": "User",
+        "firstName": "User"
     }
 ]

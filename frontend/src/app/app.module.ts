@@ -31,6 +31,11 @@ import { EditPostComponent } from './edit-post/edit-post.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HeaderComponent } from './header/header.component';
 import { LayoutComponent } from './layout/layout.component';
+import { UsersComponent } from './users/users.component';
+import { UserComponent } from './user/user.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AssignOrganizationComponent } from './assign-organization/assign-organization.component';
+import { UploadPictureComponent } from './upload-picture/upload-picture.component';
 
 
 const mockModule = [MockModule];
@@ -57,6 +62,11 @@ const mockModule = [MockModule];
     SidenavComponent,
     HeaderComponent,
     LayoutComponent,
+    UsersComponent,
+    UserComponent,
+    EditProfileComponent,
+    AssignOrganizationComponent,
+    UploadPictureComponent,
 
   ],
   imports: [

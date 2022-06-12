@@ -100,6 +100,12 @@ const getPosts = (request: HttpRequest<any>) => {
   }));
 }
 
+const getUsers = (request: HttpRequest<any>) => {
+  return of(new HttpResponse({
+    status: 200, body: users
+  }));
+}
+
 const getPost = (request: HttpRequest<any>) => {
   const requestUrl = new URL(request.url);
   const pathname = requestUrl.pathname;
@@ -121,6 +127,12 @@ const getPostComments = (request: HttpRequest<any>) => {
   const comms = comments.filter(c => c.postId == postId);
   return of(new HttpResponse({
     status: 200, body: comms
+  }));
+}
+
+const postUser = (request: HttpRequest<any>) => {
+  return of(new HttpResponse({
+    status: 200,
   }));
 }
 
@@ -157,6 +169,10 @@ export const selectHandler = (request: HttpRequest<any>) => {
           return getPost
         }
 
+        if (pathname == '/Users') {
+          return getUsers;
+        }
+
 
         return null;
     case 'POST':
@@ -170,6 +186,14 @@ export const selectHandler = (request: HttpRequest<any>) => {
 
         if (pathname == "/Posts") {
           return createPost
+        }
+
+        if (pathname.startsWith("/Users")) {
+          return postUser;
+        }
+
+        if (pathname == "/Upload") {
+          return postUser;
         }
 
         return null;

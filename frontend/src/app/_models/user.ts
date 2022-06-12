@@ -5,4 +5,5 @@ export interface User {
     firstName: string;
     lastName: string;
     authdata?: string;
+    imgPath: string;
 }

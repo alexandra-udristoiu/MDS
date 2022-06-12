@@ -15,6 +15,9 @@ import { PostsComponent } from './posts/posts.component';
 import { RegisterComponent } from './register/register.component';
 import { SignUpToCourseComponent } from './sign-up-to-course/sign-up-to-course.component';
 import { AddOrganizationComponent } from './add-organization/add-organization.component';
+import { UsersComponent } from './users/users.component';
+import { UserComponent } from './user/user.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [
 
@@ -31,7 +34,9 @@ const routes: Routes = [
   { path: 'post/:postId', component: PostPageComponent, canActivate: [AuthGuard]},
   { path: "create-post", component: CreatePostComponent, canActivate: [AuthGuard]},
   { path: "edit-post/:postId", component: EditPostComponent, canActivate: [AuthGuard]},
-  
+  { path: 'users', component: UsersComponent, canActivate:[AuthGuard]},
+  { path: 'users/:id', component: UserComponent, canActivate: [AuthGuard]},
+  { path: 'edit-user/:id', component: EditProfileComponent, canActivate: [AuthGuard]}
 
 ];
 

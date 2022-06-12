@@ -1,0 +1,39 @@
+<mat-card class="user">
+    <mat-card-title-group>
+        <mat-card-title class = "name">{{user.username}}</mat-card-title>
+        <img src="../../assets/mock-data/picture.png" class="profile_picture">
+    </mat-card-title-group>
+
+    <mat-card-actions>
+        <button mat-button class="remove-button" (click)="deleteUser()">
+            <mat-icon>remove_circle</mat-icon>Delete</button>
+        <button mat-button class="edit-button" (click)="editUser()">
+            <mat-icon>edit</mat-icon>Edit profile</button>
+            <button mat-button class="edit-button" (click)="addToOrganization()">
+                Add to organization</button>  
+    </mat-card-actions>
+</mat-card>
+
+<mat-expansion-panel class="organizations" [expanded]="true">
+    <mat-expansion-panel-header>
+            <mat-panel-title>Organizations</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-list>
+        <mat-list-item *ngFor="let organization of organizations" routerLink="/organizations/{{organization.facultyName}}">
+            {{organization.facultyName}}
+        </mat-list-item>
+    </mat-list>
+</mat-expansion-panel>
+
+<mat-expansion-panel class="courses" [expanded]="true">
+    <mat-expansion-panel-header>
+            <mat-panel-title>Courses</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-list>
+        <mat-list-item *ngFor="let course of courses" routerLink="/courses/{{course.name}}">
+            {{course.name}}
+        </mat-list-item>
+    </mat-list>
+</mat-expansion-panel>
