@@ -12,6 +12,8 @@ export class CommentComponent implements OnInit {
 
   @Input() comment!: Comment;
 
+  isEditOn: boolean = false;
+
   constructor(
     private commentService : CommentService,
     public authService: AuthenticationService
@@ -33,6 +35,15 @@ export class CommentComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  editComment(): void {
+    this.isEditOn = true;
+  }
+
+  editFinished(event): void {
+    console.log("aici")
+    this.isEditOn = false;
   }
 
 

@@ -41,6 +41,7 @@ import { AssignOrganizationComponent } from './assign-organization/assign-organi
 import { UploadPictureComponent } from './upload-picture/upload-picture.component';
 import { HomeworkComponent } from './homework/homework.component';
 import { AddHomeworkComponent } from './add-homework/add-homework.component';
+import { CommentEditComponent } from './comment-edit/comment-edit.component';
 
 
 const mockModule = [MockModule];
@@ -75,6 +76,7 @@ const mockModule = [MockModule];
     UploadPictureComponent,
     HomeworkComponent,
     AddHomeworkComponent,
+    CommentEditComponent,
 
   ],
   imports: [
