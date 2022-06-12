@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Post } from '../_models/post';
 import { PostService } from '../_services/post.service';
 
@@ -17,18 +18,23 @@ export class PostsComponent implements OnInit {
   constructor(
     private router: Router,
     private postService: PostService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private spinnerService: NgxSpinnerService,
   ) { 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit(): void {
+    this.spinnerService.show();
     this.postService.getPosts().subscribe(
       (posts : Post[]) => {
-        this.posts = posts
+        this.posts = posts;
       },
       (error: any) => {
         console.log(error);
+      },
+      () => {
+        this.spinnerService.hide();
       }
     );
 

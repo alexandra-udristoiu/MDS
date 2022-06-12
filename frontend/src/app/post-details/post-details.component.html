@@ -1,6 +1,6 @@
 <div *ngIf="post.id">
     <mat-card id="{{post.id}}" class="post" [ngClass]="{ 'mine': isMine }">
-        <mat-card-title routerLink="/post/{{post.id}}">{{post.title}}</mat-card-title>
+        <mat-card-title routerLink="/posts/{{post.id}}">{{post.title}}</mat-card-title>
         <mat-card-subtitle>
             <div class="userName">
                 <mat-icon>person_pin</mat-icon>

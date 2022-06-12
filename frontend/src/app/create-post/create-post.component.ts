@@ -68,6 +68,7 @@ export class CreatePostComponent implements OnInit {
   get tags(): string[] {
     return this.postForm.get('tags') ?.value || [];
   }
+  
   addTag(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
     if (value) {

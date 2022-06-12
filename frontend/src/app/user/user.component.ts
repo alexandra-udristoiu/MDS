@@ -81,7 +81,7 @@ export class UserComponent implements OnInit {
     };
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '550px';
-    dialogConfig.height = '700px';
+    dialogConfig.height = '400px';
     dialogConfig.data = data;
     const dialogRef = this.dialog.open(AssignOrganizationComponent, dialogConfig);
   }

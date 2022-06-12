@@ -10,7 +10,7 @@
     z-index: 100;
 }
 
-a {
+a, .user-name {
     text-decoration: none;
     color: white;
     font-size: 18px;
@@ -27,6 +27,14 @@ mat-icon:hover {
 mat-toolbar{
     border-radius: 3px;
     background-color: #8195f5;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.user-name {
+    font-size: medium;
 }
  
 @media(max-width: 959px){

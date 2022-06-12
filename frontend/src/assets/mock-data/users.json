@@ -1,9 +1,14 @@
 [
     {
-        "username": "User1",
+        "userName": "student.popescu",
         "id": 1,
-        "name": "user",
-        "lastName": "User",
-        "firstName": "User"
+        "username": "user",
+        "roleId": "Student"
+    },
+    {
+        "userName": "prof.popescu",
+        "id": 2,
+        "username": "Profesor Popescu",
+        "roleId": "Profesor"
     }
 ]
