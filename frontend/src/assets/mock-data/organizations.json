@@ -4,33 +4,35 @@
         "universityName": "Bucharest University",
         "facultyName": "FMI",
         "city": "Bucharest",
-        "contact": "fmi@info.ro"
+        "contact": "fmi@info.ro",
+        "imageUrl": "https://revista.infobits.ro/wp-content/uploads/2021/04/facultatea_de_matematica_informatica.jpg"
     },
     {
         "id": 2,
-        "universityName": "Bucharest University",
-        "facultyName": "FMI 1",
+        "universityName": "Universitatea de Arhitectura si Urbanism 'Ion Mincu'",
+        "facultyName": "Urbanism",
         "city": "Bucharest",
-        "contact": "fmi1@info.ro"
+        "contact": "secretarsef@iaim.ro",
+        "imageUrl": "http://asop.org.ro/wp-content/uploads/2016/07/ionmincubucuresti.jpg"
     },
     {
         "id": 3,
         "universityName": "Bucharest University",
-        "facultyName": "FMI 2",
+        "facultyName": "FMI_2",
         "city": "Bucharest",
         "contact": "fmi2@info.ro"
     },
     {
         "id": 4,
         "universityName": "Bucharest University",
-        "facultyName": "FMI 3",
+        "facultyName": "FMI_3",
         "city": "Bucharest",
         "contact": "fmi3@info.ro"
     },
     {
-        "id": 4,
+        "id": 5,
         "universityName": "Bucharest University",
-        "facultyName": "FMI 3",
+        "facultyName": "FMI_4",
         "city": "Bucharest",
         "contact": "fmi3@info.ro"
     }

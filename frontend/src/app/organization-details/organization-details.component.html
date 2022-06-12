@@ -1,22 +1,25 @@
-<div *ngIf="organization">
+<div *ngIf="organization" class="centered">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{organization.facultyName | uppercase}} Details</mat-card-title>
+      <mat-card-subtitle>{{organization.universityName}}</mat-card-subtitle>
+    </mat-card-header>
+    <img *ngIf="organization.imageUrl" mat-card-image src="{{organization.imageUrl}}" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        {{organization.contact}}
+      </p>
+      <p>
+        {{organization.city}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+      <button mat-button routerLink="/organizations">BACK</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
 
-    <h2>{{organization.facultyName | uppercase}} Details</h2>
-    <div><span>id: </span>{{organization.id}}</div>
-    <div>
-      <label for="organization-name">Faculty Name: </label>
-      <label>{{organization.facultyName}} </label>
-    </div>
-    <div>
-        <label for="university-name">University Name: </label>
-        <label>{{organization.universityName}} </label>
-    </div>
-    <div>
-      <label for="location">City: </label>
-      <label>{{organization.city}} </label>
-    </div>
-    <div>
-      <label for="contact">University Name: </label>
-      <label>{{organization.contact}} </label>
-    </div>
-  </div>
 
