@@ -49,7 +49,7 @@ export class PostService {
     return this.http.put(this.postsUrl, post, this.httpOptions);
   }
 
-  addPost(post: PostCreateModel): Observable<Post> {
+  addPost(post: PostCreateModel | FormData): Observable<Post> {
     return this.http.post<Post>(this.postsUrl, post, {
       headers: this.headers,
     });

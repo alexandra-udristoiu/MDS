@@ -23,11 +23,17 @@ let organizations: any[] = (organization as any).default;
 let posts: any[] = (post as any).default;
 let comments: any[] = (comment as any).default;
 
+const getUser = (authHeader: String) => {
+  const stringId = authHeader.replace('Bearer ', '');
+  const id = Number(stringId);
+
+  return users.find(user => user.id === id);
+}
 
 
 const login = (request: HttpRequest<any>) => {
     const user = users.find(u => u.userName === request.body.email);
-    const token = "token";
+    const token = user?.id;
     if (!user) {
       return of(new HttpResponse({
         status: 404
@@ -98,6 +104,28 @@ const getOrganization = (request: HttpRequest<any>) => {
 };
 
 const createPost = (request: HttpRequest<any>) => {
+  const bo = request.body?.entries();
+  const authHeader = request.headers.get('authorization');
+  const user = getUser(authHeader || '');
+
+  if (!user) {
+    return of(new HttpResponse({
+      status: 404,
+    }));
+  }
+
+  const post = {
+    userId: user.id,
+    userName: user.userName,
+    date: new Date().toDateString(),
+    id: Date.now(),
+  };
+  for (let [key, value] of bo) {
+    post[key] = value;
+  }
+
+  posts.push(post);
+
   return of(new HttpResponse({
     status: 200,
   }));

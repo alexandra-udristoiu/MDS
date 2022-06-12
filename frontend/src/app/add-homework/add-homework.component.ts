@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PostService } from '../_services/post.service';
+import { PostCreateModel } from '../_models/post-create';
 
 @Component({
   selector: 'app-add-homework',
@@ -22,24 +24,32 @@ export class AddHomeworkComponent {
 
   get f() { return this.hwForm.controls; }
   
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private postService: PostService,
+  ) {}
 
   onSubmit() {
     if (this.hwForm.invalid) {
       return;
     }
 
-    const post = {
-      title: this.f['title'].value,
-      text: this.f['text'].value,
-      fileName: '',
-    };
+    const formData = new FormData();
+    formData.append('title', this.f['title'].value);
+    formData.append('text', this.f['text'].value);
 
     if (this.file) {
-      post.fileName = this.file.name;
+      formData.append('file', this.file);
     }
-    
-    console.log(post);
+
+    this.postService.addPost(formData)
+      .subscribe(
+        (data) => {
+          console.log('succes');
+        },
+        (error) => {
+          console.log(error);
+        });
   }
 
 
