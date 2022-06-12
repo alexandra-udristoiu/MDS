@@ -29,7 +29,7 @@ namespace MDS_BE.Repositories
             db.SaveChanges();
         }
 
-        public IQueryable<Course> GetCoursesIQeriable()
+        public IQueryable<Course> GetCoursesIQueriable()
         {
             var courses = db.Courses;
 

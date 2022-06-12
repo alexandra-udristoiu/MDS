@@ -55,7 +55,7 @@ namespace MDS_BE.Managers
 
         public Course GetCourseByName(string Name)
         {
-            var course = courseRepository.GetCoursesIQeriable()
+            var course = courseRepository.GetCoursesIQueriable()
                         .FirstOrDefault(c => c.Name == Name);
 
             return course;
@@ -63,7 +63,7 @@ namespace MDS_BE.Managers
 
         public List<Course> GetCourses()
         {
-            return courseRepository.GetCoursesIQeriable().ToList();
+            return courseRepository.GetCoursesIQueriable().ToList();
         }
 
         public void Update(CourseModel model)

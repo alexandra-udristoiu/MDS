@@ -137,6 +137,7 @@ namespace MDS_BE
             services.AddTransient<IRegisterRepository, RegisterRepository>();
             services.AddTransient<ICourseRepository, CourseRepository>();
             services.AddTransient<IUserCourseRepository, UserCourseRepository>();
+            services.AddTransient<IMaterialRepository, MaterialRepository>();
 
             services.AddTransient<IAuthenticationManager, AuthenticationManager>();
             services.AddTransient<ITokenManager, TokenManager>();
@@ -146,6 +147,7 @@ namespace MDS_BE
             services.AddTransient<IOrganizationManager, OrganizationManager>();
             services.AddTransient<IRegisterManager, RegisterManager>();
             services.AddTransient<ICourseManager, CourseManager>();
+            services.AddTransient<IMaterialManager, MaterialManager>();
 
         }
 

@@ -8,7 +8,7 @@ namespace MDS_BE.Repositories
 {
     public interface ICourseRepository
     {
-        IQueryable<Course> GetCoursesIQeriable();
+        IQueryable<Course> GetCoursesIQueriable();
 
         void Create(Course course);
         void Update(Course course);

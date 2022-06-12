@@ -10,11 +10,11 @@ namespace MDS_BE.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CoursesController : ControllerBase
+    public class CourseController : ControllerBase
     {
         public readonly ICourseManager manager;
 
-        public CoursesController(ICourseManager manager)
+        public CourseController(ICourseManager manager)
         {
             this.manager = manager;
         }
