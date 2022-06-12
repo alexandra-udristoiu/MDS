@@ -19,3 +19,16 @@
 mat-card-title:hover, .tag:hover {
   cursor: pointer;
 }
+
+.image {
+  width: 35px;
+  height: 35px;
+  border-radius: 20px;
+  margin-right: 5px;
+}
+
+.userName {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}

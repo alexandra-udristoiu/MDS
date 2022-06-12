@@ -1,7 +1,7 @@
 <mat-card id="{{comment.id}}" class="comment" [ngClass]="{ 'mine': isMine }" *ngIf="comment.id && !isEditOn">
     <mat-card-subtitle>
         <div class="userName">
-            <mat-icon>person_pin</mat-icon>
+            <img src="{{user.imgPath}}" class="image">
             <span>{{comment.userName}}</span>
         </div>
     </mat-card-subtitle>
