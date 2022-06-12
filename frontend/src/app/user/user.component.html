@@ -14,26 +14,27 @@
     </mat-card-actions>
 </mat-card>
 
-<mat-expansion-panel class="organizations" [expanded]="true">
+<mat-expansion-panel class="organizations" hideToggle="true">
     <mat-expansion-panel-header>
             <mat-panel-title>Organizations</mat-panel-title>
     </mat-expansion-panel-header>
 
-    <mat-list>
-        <mat-list-item *ngFor="let organization of organizations" routerLink="/organizations/{{organization.facultyName}}">
+    <mat-grid-list gutterSize="30px" cols="3" rowHeight="1.5:1" rowWeight="2:1">
+        <mat-grid-tile *ngFor="let organization of organizations" routerLink="/organizations/{{organization.facultyName}}">
             {{organization.facultyName}}
-        </mat-list-item>
-    </mat-list>
+        </mat-grid-tile>
+    </mat-grid-list>
+
 </mat-expansion-panel>
 
-<mat-expansion-panel class="courses" [expanded]="true">
+<mat-expansion-panel class="courses" hideToggle="true">
     <mat-expansion-panel-header>
             <mat-panel-title>Courses</mat-panel-title>
     </mat-expansion-panel-header>
 
-    <mat-list>
-        <mat-list-item *ngFor="let course of courses" routerLink="/courses/{{course.name}}">
+    <mat-grid-list gutterSize="30px" cols="3" rowHeight="1.5:1" rowWeight="2:1">
+        <mat-grid-tile *ngFor="let course of courses" routerLink="/courses/{{course.name}}">
             {{course.name}}
-        </mat-list-item>
-    </mat-list>
+        </mat-grid-tile>
+    </mat-grid-list>
 </mat-expansion-panel>
