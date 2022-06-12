@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\backend",
+    "\\backend\\MDS_BE",
+    "\\backend\\MDS_BE\\MDS_BE",
+    "\\backend\\MDS_BE\\MDS_BE\\Controllers",
+    "\\backend\\MDS_BE\\MDS_BE\\Entities"
+  ],
+  "SelectedNode": "\\backend\\MDS_BE\\MDS_BE\\Entities\\User.cs",
+  "PreviewInSolutionExplorer": false
+}

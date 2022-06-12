@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -25,11 +25,6 @@
     <None Remove="Resources\users_profile_pictures\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Entities\" />
-    <Folder Include="Managers\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="Model\" />
     <Folder Include="Resources\" />
     <Folder Include="Resources\users_profile_pictures\" />
   </ItemGroup>
