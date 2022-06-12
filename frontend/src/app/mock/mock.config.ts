@@ -3,16 +3,14 @@ import {of} from 'rxjs';
 import {HttpRequest, HttpResponse} from '@angular/common/http';
 // Local imports
 import * as user from '../../assets/mock-data/users.json';
+import * as resolvedHW from '../../assets/mock-data/resolved_hw.json';
 
 import * as course from '../../assets/mock-data/courses.json';
 import * as organization from '../../assets/mock-data/organizations.json';
 
 import * as post from '../../assets/mock-data/posts.json';
+import * as hw from '../../assets/mock-data/hw.json';
 import * as comment from '../../assets/mock-data/comments.json';
-
-
-
-import {User} from '../_models/user';
 
 
 let users: any[] = (user as any).default;
@@ -21,13 +19,21 @@ let courses: any[] = (course as any).default;
 let organizations: any[] = (organization as any).default;
 
 let posts: any[] = (post as any).default;
+let homework: any[] = (hw as any).default;
+let resolvedHw: any[] = (resolvedHW as any).default;
 let comments: any[] = (comment as any).default;
 
+const getUser = (authHeader: String) => {
+  const stringId = authHeader.replace('Bearer ', '');
+  const id = Number(stringId);
+
+  return users.find(user => user.id === id);
+}
 
 
 const login = (request: HttpRequest<any>) => {
     const user = users.find(u => u.userName === request.body.email);
-    const token = "token";
+    const token = user?.id;
     if (!user) {
       return of(new HttpResponse({
         status: 404
@@ -97,7 +103,71 @@ const getOrganization = (request: HttpRequest<any>) => {
  
 };
 
+const resolveHw = (request: HttpRequest<any>) => {
+  const hwContent = {
+    id: Date.now(),
+    hwId: request.body?.hwId,
+    userId: request.body?.userId,
+    resolveFile: request.body?.file,
+  };
+  resolvedHw.push(hwContent);
+  return of(new HttpResponse({
+    status: 200
+  }));
+
+};
+
 const createPost = (request: HttpRequest<any>) => {
+  const bo = request.body?.entries();
+  const authHeader = request.headers.get('authorization');
+  const user = getUser(authHeader || '');
+
+  if (!user) {
+    return of(new HttpResponse({
+      status: 404,
+    }));
+  }
+
+  const post = {
+    userId: user.id,
+    userName: user.userName,
+    date: new Date().toDateString(),
+    id: Date.now(),
+  };
+  for (let [key, value] of bo) {
+    post[key] = value;
+  }
+
+  posts.push(post);
+
+  return of(new HttpResponse({
+    status: 200,
+  }));
+};
+
+const createHw = (request: HttpRequest<any>) => {
+  const bo = request.body?.entries();
+  const authHeader = request.headers.get('authorization');
+  const user = getUser(authHeader || '');
+
+  if (!user) {
+    return of(new HttpResponse({
+      status: 404,
+    }));
+  }
+
+  const hw = {
+    userId: user.id,
+    userName: user.userName,
+    createdDate: new Date().toDateString(),
+    id: Date.now(),
+  };
+  for (let [key, value] of bo) {
+    hw[key] = value;
+  }
+
+  homework.push(hw);
+
   return of(new HttpResponse({
     status: 200,
   }));
@@ -112,6 +182,26 @@ const updatePost = (request: HttpRequest<any>) => {
 const getPosts = (request: HttpRequest<any>) => {
   return of(new HttpResponse({
     status: 200, body: posts
+  }));
+}
+
+const getHw = (request: HttpRequest<any>) => {
+  const authHeader = request.headers.get('authorization');
+  const user = getUser(authHeader || '');
+
+  if (!user) {
+    return of(new HttpResponse({
+      status: 404,
+    }));
+  }
+
+  homework.map(hw => {
+    const resolved = resolvedHw.find(homework => homework.userId === user.id && hw.id === homework.hwId);
+    hw.resolved = !!resolved;
+    hw.resolveFile = resolved?.resolveFile;
+  });
+  return of(new HttpResponse({
+    status: 200, body: homework,
   }));
 }
 
@@ -147,6 +237,9 @@ export const selectHandler = (request: HttpRequest<any>) => {
   switch (request.method) {
     case 'GET':
 
+      if (pathname === "/Homework") {
+        return getHw;
+      }
       if (pathname === "/Courses") {
         return getCourses;
       }
@@ -186,6 +279,15 @@ export const selectHandler = (request: HttpRequest<any>) => {
         if (pathname == "/Posts") {
           return createPost
         }
+
+        if (pathname.endsWith('resolve')) {
+          return resolveHw;
+        }
+
+        if (pathname === "/Homework") {
+          return createHw;
+        }
+
 
         return null;
     case 'PUT':

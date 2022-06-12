@@ -4,4 +4,5 @@ export interface Organization {
     facultyName: string;
     city: string;
     contact: string;
+    imageUrl: string;
 }

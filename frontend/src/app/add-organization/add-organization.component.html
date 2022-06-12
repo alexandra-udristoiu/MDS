@@ -17,7 +17,7 @@
     </div>
   </form>
   
-  <button type="submit" [disabled]="!addOrganization.valid" (click)="onSubmit()">Submit</button>
-  <div>
-    <a routerLink="/organizations">Go back to list of organizations</a>
+  <div class="actions">
+    <button mat-raised-button color="primary" type="submit" [disabled]="!addOrganization.valid" (click)="onSubmit()">Submit</button>
+    <button mat-raised-button color="primary" routerLink="/organizations">Go back to list of organizations</button>
   </div>

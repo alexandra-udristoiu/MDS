@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "homework 1",
+        "text": "Aceasta este tema 1",
+        "createdDate": "Sat Jun 11 2022",
+        "dueDate": "Sun Jun 30 2022",
+        "userId": 2,
+        "userName": "prof.popescu"
+    },
+    {
+        "id": 2,
+        "title": "homework 2",
+        "text": "Aceasta este tema 2",
+        "createdDate": "Sat Jun 11 2022",
+        "dueDate": "Sun Jun 12 2022",
+        "userId": 2,
+        "userName": "prof.popescu"
+    }
+]
