@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PostService } from '../_services/post.service';
-import { PostCreateModel } from '../_models/post-create';
+import { HwService } from '../_services/hw.service';
 
 @Component({
   selector: 'app-add-homework',
   templateUrl: './add-homework.component.html',
   styleUrls: ['./add-homework.component.css']
 })
-export class AddHomeworkComponent {
+export class AddHomeworkComponent implements OnInit {
   hwForm!: FormGroup;
   isLinear = false;
   fileName = '';
@@ -18,6 +17,7 @@ export class AddHomeworkComponent {
     this.hwForm = this.formBuilder.group({
       title: ['', Validators.required],
       text: ['', Validators.required],
+      dueDate: ['', Validators.required],
       file: []
     });
   }
@@ -26,7 +26,7 @@ export class AddHomeworkComponent {
   
   constructor(
     private formBuilder: FormBuilder,
-    private postService: PostService,
+    private hwService: HwService,
   ) {}
 
   onSubmit() {
@@ -42,13 +42,20 @@ export class AddHomeworkComponent {
       formData.append('file', this.file);
     }
 
-    this.postService.addPost(formData)
+    if (this.f['dueDate']) {
+      formData.append('dueDate', this.f['dueDate'].value.toDateString());
+    }
+
+    this.hwService.addHw(formData)
       .subscribe(
         (data) => {
           console.log('succes');
         },
         (error) => {
           console.log(error);
+        }, 
+        () => {
+          this.hwForm.reset();
         });
   }
 

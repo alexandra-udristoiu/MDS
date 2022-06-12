@@ -4,6 +4,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -36,6 +38,7 @@ import { HeaderComponent } from './header/header.component';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeworkComponent } from './homework/homework.component';
 import { AddHomeworkComponent } from './add-homework/add-homework.component';
+import { HwDetailsComponent } from './hw-details/hw-details.component';
 
 
 const mockModule = [MockModule];
@@ -65,6 +68,7 @@ const mockModule = [MockModule];
     LayoutComponent,
     HomeworkComponent,
     AddHomeworkComponent,
+    HwDetailsComponent,
 
   ],
   imports: [
@@ -82,8 +86,13 @@ const mockModule = [MockModule];
     FormsModule,
     ReactiveFormsModule,
     MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule,
+    MatNativeDateModule,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
