@@ -31,13 +31,16 @@ export class UserComponent implements OnInit {
     private courseService: CourseService,
     public authService: AuthenticationService,
     public dialog: MatDialog,
-  ) { }
+  ) { 
+    this.user = {} as User;
+  }
 
   ngOnInit(): void {
     let userId = this.route.snapshot.params['id'];
     this.userService.getAll().subscribe(
       (users : User[]) => {
         this.user = users.filter(u => u.id == userId)[0];
+        this.user.imgPath = './assets/mock-data/picture.png';
       },
       (error: any) => {
         console.log(error);

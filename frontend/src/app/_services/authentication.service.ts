@@ -19,7 +19,7 @@ export class AuthenticationService {
         private http: HttpClient
     ) {
         this.isLoggedIn = new BehaviorSubject<boolean>(!!localStorage.getItem('token'));
-        this.isAdmin = new BehaviorSubject<boolean>(this.user?.roleId === 'Profesor');
+        this.isAdmin = new BehaviorSubject<boolean>(this.user?.roleId === 'Prof');
     }
 
     public get $isLoggedIn(): boolean {
@@ -63,7 +63,7 @@ export class AuthenticationService {
                 localStorage.setItem('token', result.token);
                 this.isLoggedIn.next(true);
 
-                if (this.user.roleId === 'Profesor') {
+                if (this.user.roleId === 'Prof') {
                     this.isAdmin.next(true);
                 }
                 return result;

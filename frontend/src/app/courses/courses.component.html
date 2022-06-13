@@ -1,9 +1,9 @@
 <h2>Courses</h2>
 <ul class="course">
   <li *ngFor="let course of courses">
-    <a routerLink="/courses/{{course.name}}">
+    <div routerLink="/courses/{{course.name}}">
         <span class="id">{{course.id}}</span> <span [outerHTML]="course.name"></span>
-    </a>
+    </div>
   </li>
 </ul>
 

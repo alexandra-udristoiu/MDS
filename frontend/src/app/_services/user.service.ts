@@ -17,7 +17,7 @@ export class UserService {
 
   headers: any;
 
-  private usersUrl = `${environment.apiUrl}/Users`;
+  private usersUrl = `${environment.apiUrl}/User`;
 
   constructor(private http: HttpClient, public authService: AuthenticationService) { 
     this.token = authService.token;

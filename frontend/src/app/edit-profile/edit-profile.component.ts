@@ -35,17 +35,16 @@ export class EditProfileComponent implements OnInit {
     this.userService.getAll().subscribe(
       (users : User[]) => {
         this.user = users.filter(u => u.id == id)[0];
+        this.userForm = this.formBuilder.group({
+          username: [this.user.username, Validators.required],
+          picture: ['']
+        })
+        this.response = {dbPath: this.user.imgPath};
       },
       (error: any) => {
         console.log(error);
       }
     );
-
-    this.userForm = this.formBuilder.group({
-      username: [this.user.username, Validators.required],
-      picture: ['']
-    })
-    this.response = {dbPath: this.user.imgPath};
   }
 
   uploadFinished(event): void {
@@ -69,6 +68,7 @@ export class EditProfileComponent implements OnInit {
       .subscribe(
         (data) => {
           this.submitted = true;
+          this.router.navigate(['/users', this.user.id]);
           console.log('succes');
         },
         (error) => {

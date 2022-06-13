@@ -8,4 +8,6 @@ export interface Comment {
     userId: string;
     userName: string;
     postId: number;
+    user: User;
+    createdDate: string
 }
