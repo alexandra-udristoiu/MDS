@@ -61,7 +61,7 @@ namespace MDS_BE.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(403);
+                return BadRequest("This assignment does not exist!");
             }
         }
 
