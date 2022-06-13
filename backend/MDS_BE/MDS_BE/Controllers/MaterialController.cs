@@ -50,7 +50,7 @@ namespace MDS_BE.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(403);
+                return BadRequest("This material does not exist!");
             }
         }
 
