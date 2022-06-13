@@ -10,6 +10,8 @@ namespace MDS_BE.Entities
         public ICollection<UserRole> UserRoles { get; set; }
         public virtual ICollection<UserOrganization> UserOrganizations { get; set; }
         public virtual Register Register { get; set; }
+
+        public virtual ICollection<UserCourse> UserCourses { get; set; }
         //public virtual ICollection<UserCourse> UserCourses { get; set; }
         //public virtual Project Project { get; set; }
     }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MDS_BE.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220516195044_addred UserRole table")]
-    partial class addredUserRoletable
+    [Migration("20220612154301_updateeeee")]
+    partial class updateeeee
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,32 @@ namespace MDS_BE.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.11")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("MDS_BE.Entities.Assignment", b =>
+                {
+                    b.Property<int>("AssignmentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CourseName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Grade")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AssignmentId");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("Assignments");
+                });
 
             modelBuilder.Entity("MDS_BE.Entities.Comment", b =>
                 {
@@ -48,6 +74,44 @@ namespace MDS_BE.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("MDS_BE.Entities.Course", b =>
+                {
+                    b.Property<int>("CourseId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CourseId");
+
+                    b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("MDS_BE.Entities.Material", b =>
+                {
+                    b.Property<int>("MaterialId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.HasKey("MaterialId");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("Materials");
                 });
 
             modelBuilder.Entity("MDS_BE.Entities.Organization", b =>
@@ -161,22 +225,22 @@ namespace MDS_BE.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2b9dc1e6-8ec1-40e5-bd41-3c4d1d177c03",
-                            ConcurrencyStamp = "51cc5bde-fa00-453c-aff7-4654c44d0c1c",
+                            Id = "1aa2a039-8da8-42da-9f04-da71ed8a1094",
+                            ConcurrencyStamp = "d184d3da-2bab-438d-ad28-cc8e56be3d60",
                             Name = "Prof",
                             NormalizedName = "PROFESOR"
                         },
                         new
                         {
-                            Id = "a173250c-0658-4a23-ad18-af5da83f4925",
-                            ConcurrencyStamp = "786eabd5-d5f2-4596-8de6-4181965663cb",
+                            Id = "c29e1105-851f-4690-904b-34496b7a3e9e",
+                            ConcurrencyStamp = "ec493a6e-ee18-48f8-bcee-d027e7d4190e",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         },
                         new
                         {
-                            Id = "108a8598-3b10-4ad6-9f23-a4a48f99e42b",
-                            ConcurrencyStamp = "03695f8d-f981-4140-b462-68fdccf63b4f",
+                            Id = "9bdccd2c-b320-45ff-b348-aa746d594d08",
+                            ConcurrencyStamp = "a3212652-f9a8-43f1-b193-6894d4cb567a",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -250,6 +314,21 @@ namespace MDS_BE.Migrations
                     b.HasIndex("RegisterId");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("MDS_BE.Entities.UserCourse", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "CourseId");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("UserCourses");
                 });
 
             modelBuilder.Entity("MDS_BE.Entities.UserOrganization", b =>
@@ -381,6 +460,17 @@ namespace MDS_BE.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("MDS_BE.Entities.Assignment", b =>
+                {
+                    b.HasOne("MDS_BE.Entities.Course", "Course")
+                        .WithMany("Assignments")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+                });
+
             modelBuilder.Entity("MDS_BE.Entities.Comment", b =>
                 {
                     b.HasOne("MDS_BE.Entities.Post", "Post")
@@ -396,6 +486,17 @@ namespace MDS_BE.Migrations
                     b.Navigation("Post");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("MDS_BE.Entities.Material", b =>
+                {
+                    b.HasOne("MDS_BE.Entities.Course", "Course")
+                        .WithMany("Materials")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
                 });
 
             modelBuilder.Entity("MDS_BE.Entities.Post", b =>
@@ -414,6 +515,25 @@ namespace MDS_BE.Migrations
                         .HasForeignKey("RegisterId");
 
                     b.Navigation("Register");
+                });
+
+            modelBuilder.Entity("MDS_BE.Entities.UserCourse", b =>
+                {
+                    b.HasOne("MDS_BE.Entities.Course", "Course")
+                        .WithMany("UserCourses")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MDS_BE.Entities.User", "User")
+                        .WithMany("UserCourses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MDS_BE.Entities.UserOrganization", b =>
@@ -498,6 +618,15 @@ namespace MDS_BE.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("MDS_BE.Entities.Course", b =>
+                {
+                    b.Navigation("Assignments");
+
+                    b.Navigation("Materials");
+
+                    b.Navigation("UserCourses");
+                });
+
             modelBuilder.Entity("MDS_BE.Entities.Organization", b =>
                 {
                     b.Navigation("UserOrganizations");
@@ -523,6 +652,8 @@ namespace MDS_BE.Migrations
                     b.Navigation("Comments");
 
                     b.Navigation("Posts");
+
+                    b.Navigation("UserCourses");
 
                     b.Navigation("UserOrganizations");
 
