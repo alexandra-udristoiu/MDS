@@ -1,0 +1,13 @@
+<div  class = "container">
+    <h2>Edit profile</h2>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill" class="field">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" formControlName="username" required>
+        </mat-form-field>
+        <app-upload-picture (onUploadFinished)="uploadFinished($event)"></app-upload-picture>
+    </form>
+    <br/>
+    <button mat-button (click)="onSubmit()" class = "button">Submit</button>
+    <button mat-button (click)="cancel()" class = "button">Cancel</button>
+</div>

@@ -1,7 +1,7 @@
-<mat-card id="{{comment.id}}" class="comment" [ngClass]="{ 'mine': isMine }" *ngIf="comment.id">
+<mat-card id="{{comment.id}}" class="comment" [ngClass]="{ 'mine': isMine }" *ngIf="comment.id && !isEditOn">
     <mat-card-subtitle>
         <div class="userName">
-            <mat-icon>person_pin</mat-icon>
+            <img src="{{user.imgPath}}" class="image">
             <span>{{comment.userName}}</span>
         </div>
     </mat-card-subtitle>
@@ -18,5 +18,9 @@
     <mat-card-actions align="end">
         <button mat-button *ngIf="isMine" class="remove-button" (click)="removeComment()">
             <mat-icon>remove_circle</mat-icon>Remove</button>
+            <button mat-button *ngIf="isMine" (click)="editComment()">
+                <mat-icon>edit</mat-icon>Edit</button>
     </mat-card-actions>
 </mat-card>
+<app-comment-edit *ngIf="isEditOn" [comment]="this.comment" (commentEdit)="editFinished($event)">
+</app-comment-edit>

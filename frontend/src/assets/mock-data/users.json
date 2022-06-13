@@ -2,13 +2,15 @@
     {
         "userName": "student.popescu",
         "id": 1,
-        "name": "user",
-        "roleId": "Student"
+        "username": "user",
+        "roleId": "Student",
+        "imgPath": "./assets/mock-data/picture.png"
     },
     {
         "userName": "prof.popescu",
         "id": 2,
-        "name": "Profesor Popescu",
-        "roleId": "Profesor"
+        "username": "Profesor Popescu",
+        "roleId": "Profesor",
+        "imgPath": "./assets/mock-data/picture.png"
     }
 ]

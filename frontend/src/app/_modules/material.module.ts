@@ -11,6 +11,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select'
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { MatChipsModule } from '@angular/material/chips';
         MatCardModule,
         MatFormFieldModule,
         MatInputModule,
-        MatChipsModule
+        MatChipsModule,
+        MatExpansionModule,
+        MatDialogModule,
+        MatSelectModule
     ],
     exports: [
         MatTabsModule,
@@ -40,7 +46,10 @@ import { MatChipsModule } from '@angular/material/chips';
         MatCardModule,
         MatFormFieldModule,
         MatInputModule,
-        MatChipsModule
+        MatChipsModule,
+        MatExpansionModule,
+        MatDialogModule,
+        MatSelectModule
     ]
 })
 export class MaterialModule { }

@@ -35,6 +35,11 @@ mat-toolbar{
 
 .user-name {
     font-size: medium;
+    cursor: pointer;
+}
+
+.user-name:hover {
+    color: lightgray;
 }
  
 @media(max-width: 959px){
@@ -50,4 +55,11 @@ mat-toolbar{
 .nav-font::hover {
     color: white;
     cursor: pointer;
+}
+
+.picture {
+    width: 25px;
+    height: 25px;
+    border-radius: 15px;
+    margin-left: 3px;
 }

@@ -185,6 +185,12 @@ const getPosts = (request: HttpRequest<any>) => {
   }));
 }
 
+const getUsers = (request: HttpRequest<any>) => {
+  return of(new HttpResponse({
+    status: 200, body: users
+  }));
+}
+
 const getHw = (request: HttpRequest<any>) => {
   const authHeader = request.headers.get('authorization');
   const user = getUser(authHeader || '');
@@ -229,6 +235,12 @@ const getPostComments = (request: HttpRequest<any>) => {
   }));
 }
 
+const postUser = (request: HttpRequest<any>) => {
+  return of(new HttpResponse({
+    status: 200,
+  }));
+}
+
 
 export const selectHandler = (request: HttpRequest<any>) => {
   const requestUrl = new URL(request.url);
@@ -265,6 +277,10 @@ export const selectHandler = (request: HttpRequest<any>) => {
           return getPost
         }
 
+        if (pathname == '/Users') {
+          return getUsers;
+        }
+
 
         return null;
     case 'POST':
@@ -280,6 +296,14 @@ export const selectHandler = (request: HttpRequest<any>) => {
           return createPost
         }
 
+        if (pathname.startsWith("/Users")) {
+          return postUser;
+        }
+
+        if (pathname == "/Upload") {
+          return postUser;
+        }
+
         if (pathname.endsWith('resolve')) {
           return resolveHw;
         }
@@ -287,7 +311,6 @@ export const selectHandler = (request: HttpRequest<any>) => {
         if (pathname === "/Homework") {
           return createHw;
         }
-
 
         return null;
     case 'PUT':

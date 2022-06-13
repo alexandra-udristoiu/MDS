@@ -47,4 +47,10 @@ export class CommentService {
     });
   }
 
+  updateComment(comment: Comment): Observable<any> {
+    const url = `${this.baseUrl}/Comments`;
+    return this.http.put<any>(url, comment, {
+      headers: this.headers,
+    });
+  }
 }
