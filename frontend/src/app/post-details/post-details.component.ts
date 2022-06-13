@@ -31,14 +31,16 @@ export class PostDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getAll().subscribe(
       (users : User[]) => {
-        this.user = users.filter(u => u.id == this.post.userId)[0];
+        this.user = users.filter(u => u.id == this.post?.userId)[0];
       },
       (error: any) => {
         console.log(error);
       }
     );
 
-    this.post.createdDate = this.pipe.transform(new Date(this.post.createdDate), 'MMM d, y, h:mm:ss a') || this.post.createdDate;
+    if (this.post?.createdDate) {
+      this.post.createdDate = this.pipe.transform(new Date(this.post.createdDate), 'MMM d, y, h:mm:ss a') || this.post.createdDate;
+    }
   }
 
   get isMine(): boolean {
