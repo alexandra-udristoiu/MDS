@@ -8,6 +8,7 @@ import { OrganizationService } from '../_services/organization.service';
 import { UserService } from '../_services/user.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AssignOrganizationComponent } from '../assign-organization/assign-organization.component';
+import { AuthenticationService } from '../_services/authentication.service';
 
 @Component({
   selector: 'app-user',
@@ -28,6 +29,7 @@ export class UserComponent implements OnInit {
     private router: Router,
     private organizationService: OrganizationService,
     private courseService: CourseService,
+    public authService: AuthenticationService,
     public dialog: MatDialog,
   ) { }
 
@@ -71,7 +73,7 @@ export class UserComponent implements OnInit {
   }
 
   editUser(): void {
-    this.router.navigate(['/edit-user', this.user.id]);
+    this.router.navigate(['/edit-profile']);
   }
 
   addToOrganization(): void {
@@ -84,6 +86,10 @@ export class UserComponent implements OnInit {
     dialogConfig.height = '400px';
     dialogConfig.data = data;
     const dialogRef = this.dialog.open(AssignOrganizationComponent, dialogConfig);
+  }
+
+  get isMine(): boolean {
+    return this.authService.user.id === this.user.id;
   }
 
 }

@@ -37,7 +37,7 @@ const routes: Routes = [
   { path: "edit-post/:postId", component: EditPostComponent, canActivate: [AuthGuard]},
   { path: 'users', component: UsersComponent, canActivate:[AuthGuard]},
   { path: 'users/:id', component: UserComponent, canActivate: [AuthGuard]},
-  { path: 'edit-user/:id', component: EditProfileComponent, canActivate: [AuthGuard]},
+  { path: 'edit-profile', component: EditProfileComponent, canActivate: [AuthGuard]},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'homework', component: HomeworkComponent, canActivate: [AuthGuard] },
 ];

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../_models/user';
+import { AuthenticationService } from '../_services/authentication.service';
 import { UserService } from '../_services/user.service';
 
 @Component({
@@ -26,10 +27,11 @@ export class EditProfileComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private userService: UserService,
+    private authService: AuthenticationService
   ) { }
 
   ngOnInit(): void {
-    let id = this.route.snapshot.params['id'];
+    let id = this.authService.user.id;
     this.userService.getAll().subscribe(
       (users : User[]) => {
         this.user = users.filter(u => u.id == id)[0];
