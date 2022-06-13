@@ -8,6 +8,6 @@
         <a routerLink="/dashboard">Dashboard</a>
     </div>
     <span class="spacer"></span>
-    <span class="user-name">{{authService.user.userName}}</span>
-    <mat-icon class="nav-font">face</mat-icon>
+    <span class="user-name" routerLink="/users/{{authService.user.id}}">{{authService.user.userName}}</span>
+    <img src="{{authService.user.imgPath}}" class="picture">
 </mat-toolbar>
