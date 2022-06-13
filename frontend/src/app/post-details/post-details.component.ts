@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { Post } from '../_models/post';
 import { User } from '../_models/user';
@@ -16,6 +17,7 @@ export class PostDetailsComponent implements OnInit {
   @Input() post: Post;
 
   user!: User;
+  pipe = new DatePipe('en-US');
 
   constructor(
     public postService: PostService,
@@ -35,6 +37,8 @@ export class PostDetailsComponent implements OnInit {
         console.log(error);
       }
     );
+
+    this.post.createdDate = this.pipe.transform(new Date(this.post.createdDate), 'MMM d, y, h:mm:ss a') || this.post.createdDate;
   }
 
   get isMine(): boolean {

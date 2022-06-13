@@ -43,6 +43,7 @@ namespace MDS_BE.Managers
         public async Task<TokenModel> Login(LoginUserModel loginUserModel)
         {
             var user = await userManager.FindByEmailAsync(loginUserModel.Email);
+            var roles = await userManager.GetRolesAsync(user);
             if (user != null)
             {
                 var result = await registerManager.CheckPasswordSignInAsync(user, loginUserModel.Password, false);
@@ -54,6 +55,8 @@ namespace MDS_BE.Managers
                     {
                         Id = user.Id,
                         Name = user.UserName,
+                        ImgPath = "./assets/mock-data/picture.png",
+                        RoleId = roles[0],
                     };
                     return new TokenModel
                     {

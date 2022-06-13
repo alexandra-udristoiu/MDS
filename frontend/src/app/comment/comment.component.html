@@ -1,8 +1,8 @@
 <mat-card id="{{comment.id}}" class="comment" [ngClass]="{ 'mine': isMine }" *ngIf="comment.id && !isEditOn">
     <mat-card-subtitle>
         <div class="userName">
-            <img src="{{user.imgPath}}" class="image">
-            <span>{{comment.userName}}</span>
+            <img src="{{authService.user.imgPath}}" class="image">
+            <span>{{comment.user.userName}}</span>
         </div>
     </mat-card-subtitle>
     <mat-card-content>
@@ -12,7 +12,7 @@
     </mat-card-content>
 
     <mat-card-subtitle align="end">
-        {{comment.date}}
+        {{comment.createdDate}}
     </mat-card-subtitle>
 
     <mat-card-actions align="end">

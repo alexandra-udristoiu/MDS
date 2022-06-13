@@ -38,6 +38,7 @@ export class UserComponent implements OnInit {
     this.userService.getAll().subscribe(
       (users : User[]) => {
         this.user = users.filter(u => u.id == userId)[0];
+        this.user.imgPath = './assets/mock-data/picture.png';
       },
       (error: any) => {
         console.log(error);

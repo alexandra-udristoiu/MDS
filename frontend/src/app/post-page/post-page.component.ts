@@ -33,13 +33,11 @@ export class PostPageComponent implements OnInit {
     this.postService.getPost(postId).subscribe(
       (data) => {
         this.post = data;
-        console.log(data);
+        this.showComments();
       },
       (error) => {
         console.log(error);
       });
-
-    this.showComments()
   }
 
   showComments(): void {

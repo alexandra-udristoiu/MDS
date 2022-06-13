@@ -1,5 +1,5 @@
 <mat-card class="create-comment">
-    <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="commentForm">
         <mat-form-field appearance="fill" class="full-width">
             <textarea matInput placeholder="Write a comment" formControlName="text" required>
                 </textarea>
