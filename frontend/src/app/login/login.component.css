@@ -1,0 +1,15 @@
+.half-width {
+    min-width: 100%;
+}
+
+.login-form {
+    margin: 5% 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-button:hover {
+    cursor: pointer;
+}

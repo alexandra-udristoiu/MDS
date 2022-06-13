@@ -1,0 +1,40 @@
+<mat-card class="user">
+    <mat-card-title-group>
+        <mat-card-title class = "name">{{user.username}}</mat-card-title>
+        <img src="{{user.imgPath}}" class="profile_picture">
+    </mat-card-title-group>
+
+    <mat-card-actions>
+        <button *ngIf="isMine" mat-button class="remove-button" (click)="deleteUser()">
+            <mat-icon>remove_circle</mat-icon>Delete</button>
+        <button *ngIf="isMine" mat-button class="edit-button" (click)="editUser()">
+            <mat-icon>edit</mat-icon>Edit profile</button>
+        <button mat-button *ngIf="authService.$isAdmin" class="edit-button" (click)="addToOrganization()">
+                Add to organization</button>  
+    </mat-card-actions>
+</mat-card>
+
+<mat-expansion-panel class="organizations" hideToggle="true">
+    <mat-expansion-panel-header>
+            <mat-panel-title>Organizations</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-grid-list gutterSize="30px" cols="3" rowHeight="1.5:1" rowWeight="2:1">
+        <mat-grid-tile *ngFor="let organization of organizations" routerLink="/organizations/{{organization.facultyName}}">
+            {{organization.facultyName}}
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</mat-expansion-panel>
+
+<mat-expansion-panel class="courses" hideToggle="true">
+    <mat-expansion-panel-header>
+            <mat-panel-title>Courses</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-grid-list gutterSize="30px" cols="3" rowHeight="1.5:1" rowWeight="2:1">
+        <mat-grid-tile *ngFor="let course of courses" routerLink="/courses/{{course.name}}">
+            {{course.name}}
+        </mat-grid-tile>
+    </mat-grid-list>
+</mat-expansion-panel>

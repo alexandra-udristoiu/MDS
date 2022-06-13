@@ -1,0 +1,51 @@
+.users {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 15em;
+  }
+.users li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin: .5em;
+    width: 25em;
+    border-radius: 4px;
+  }
+
+.users li a{
+    text-decoration: none;
+    color: black;
+}
+.users li:hover {
+    color: #2c3a41;
+    background-color: #3f51b5;
+    left: .1em;
+    transition-duration: 0.5s;
+  }
+
+.users li:hover a{
+    color: white;
+    text-decoration: none;
+}
+
+.users li:hover .id{
+    background-color: white;
+    color: #3f51b5;
+}
+
+.id {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color:#3f51b5;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: 2.5em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+  }

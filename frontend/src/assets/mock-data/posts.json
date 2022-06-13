@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "Postare 1",
+        "text": "Aceasta este postarea 1",
+        "date": "11 May 2022",
+        "userId": 1,
+        "userName": "User1",
+        "tags": ["tag", "tag2"]
+    },
+    {
+        "id": 2,
+        "title": "Postare 2",
+        "text": "Aceasta este postarea 2",
+        "date": "11 May 2022",
+        "userId": 2,
+        "userName": "User2",
+        "tags": ["tag"]
+    }
+]

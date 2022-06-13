@@ -1,0 +1,9 @@
+<div>
+    <app-post-details [post]="post"></app-post-details>
+    <button mat-button (click)="commentsActive ? hideComments() : showComments()" class = "button">
+        <mat-icon> list_alt</mat-icon>{{commentsActive ? 'Hide' : 'Show'}} comments</button>
+        <app-comment-create [postId]="post.id" (commentAdd) ="addComment()"></app-comment-create>
+    <div *ngIf="commentsActive">
+        <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
+    </div>
+</div>

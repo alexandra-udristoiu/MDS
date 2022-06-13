@@ -1,0 +1,15 @@
+<form [formGroup]='signUpToCourse' (ngSubmit)="onSubmit()">
+    <div>
+      <label for="first-name">Course Id: </label>
+      <input id="first-name" type="text" formControlName="courseId">
+    </div>
+    <div>
+      <label for="last-name">User Id: </label>
+      <input id="last-name" type="text" formControlName="userId">
+    </div>
+  </form>
+  
+  <button type="submit" [disabled]="!signUpToCourse.valid" (click)="onSubmit()">Submit</button>
+  <div>
+    <a routerLink="/courses">Go back to list of courses</a>
+  </div>

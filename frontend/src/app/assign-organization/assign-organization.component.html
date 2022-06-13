@@ -1,0 +1,14 @@
+<h2> Assign user to organization </h2>
+<div>
+    <form [formGroup]="assignOrganization">
+    <mat-form-field appearance="fill" class="field">
+        <mat-label>Select organization</mat-label>
+        <mat-select class="select" formControlName="organization">
+            <mat-option *ngFor="let organization of organizations" value="{{organization.id}}">
+                {{organization.facultyName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    </form>
+    <button mat-button type="submit" class="button" [disabled]="!assignOrganization.valid" (click)="onSubmit()">Submit</button>
+</div>

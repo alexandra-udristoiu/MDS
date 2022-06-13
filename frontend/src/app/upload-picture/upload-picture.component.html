@@ -1,0 +1,14 @@
+<div>
+    <div>
+      <input type="file" #file placeholder="Choose picture" (change)="uploadFile(file.files)" class="input">
+      <button mat-button (click)="file.click()" class="button">Upload Picture</button>
+    </div>
+    <div class="messages">
+      <span class="upload" *ngIf="progress > 0">
+        {{progress}}%
+      </span>
+      <span class="upload" *ngIf="message">
+        {{message}}
+      </span>
+    </div>
+  </div>

@@ -1,0 +1,14 @@
+.example-card {
+    max-width: 400px;
+}
+
+.example-header-image {
+    background-image: url('https://e7.pngegg.com/pngimages/703/597/png-clipart-logo-house-home-house-angle-building-thumbnail.png');
+    background-size: cover;
+}
+
+.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

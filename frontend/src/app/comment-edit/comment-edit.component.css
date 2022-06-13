@@ -1,0 +1,13 @@
+.create-comment {
+    border-radius: 15px;
+    margin: 0 7% 1% 7%;
+    background-color: rgb(228, 236, 252);   
+  }
+  
+  .full-width {
+    min-width: 100%;
+  }
+  
+  mat-form-field {
+    line-height: 0.5;
+  }

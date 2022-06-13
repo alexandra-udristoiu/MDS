@@ -135,6 +135,10 @@ namespace MDS_BE
             services.AddTransient<ICommentRepository, CommentRepository>();
             services.AddTransient<IOrganizationsRepository, OrganizationsRepository>();
             services.AddTransient<IRegisterRepository, RegisterRepository>();
+            services.AddTransient<ICourseRepository, CourseRepository>();
+            services.AddTransient<IUserCourseRepository, UserCourseRepository>();
+            services.AddTransient<IMaterialRepository, MaterialRepository>();
+            services.AddTransient<IAssignmentRepository, AssignmentRepository>();
 
             services.AddTransient<IAuthenticationManager, AuthenticationManager>();
             services.AddTransient<ITokenManager, TokenManager>();
@@ -143,7 +147,10 @@ namespace MDS_BE
             services.AddTransient<ICommentManager, CommentManager>();
             services.AddTransient<IOrganizationManager, OrganizationManager>();
             services.AddTransient<IRegisterManager, RegisterManager>();
-         
+            services.AddTransient<ICourseManager, CourseManager>();
+            services.AddTransient<IMaterialManager, MaterialManager>();
+            services.AddTransient<IAssignmentManager, AssignmentManager>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -158,11 +165,11 @@ namespace MDS_BE
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseStaticFiles(new StaticFileOptions
+/*            app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Resources")),
                 RequestPath = new PathString("/Resources")
-            });
+            });*/
        
             app.UseRouting();
 
