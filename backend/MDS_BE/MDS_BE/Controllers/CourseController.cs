@@ -58,7 +58,7 @@ namespace MDS_BE.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(403);
+                return BadRequest("This course does not exist!");
             }
         }
 
@@ -81,7 +81,7 @@ namespace MDS_BE.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(403);
+                return BadRequest("Invalid user ID!");
             }
 
             return Ok();
