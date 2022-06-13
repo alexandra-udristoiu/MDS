@@ -56,7 +56,7 @@ namespace MDS_BE.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(403);
+                return BadRequest("This post does not exist!");
             }
         }
 
@@ -110,7 +110,7 @@ namespace MDS_BE.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(403);
+                return BadRequest("This comment does not exist!");
             }
         }
 

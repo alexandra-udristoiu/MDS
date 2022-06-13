@@ -75,7 +75,7 @@ namespace MDS_BE.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(403);
+                return BadRequest("This register does not exist!");
             }
         }
 
