@@ -25,13 +25,15 @@ The next statements are description of features that a possible user of the app 
 
 ### 1.3 Implementation backbone - UML Scheme
 The below scheme shows the main entities of the application and the way they interact:
+
 ![uml scheme](/assets/uml.png)
 
 ### 1.4 How it works - Application demo
 The demo of the application can be found [here](https://drive.google.com/drive/folders/1jIxcQP_lTKMtUCCWOG5n2vF_zL8lFaLq?usp=sharing).
 
 ## 2. Project management
-We  used Notion in order to manage and organise our tasks during developing the application, for – access the app [here](https://www.notion.so/e604e6134a0d4cb1a02470417ffd58f9?v=322b68d251af45e185711f40aade8730)
+We  used Notion in order to manage and organise our tasks during developing the application – access the app [here](https://www.notion.so/e604e6134a0d4cb1a02470417ffd58f9?v=322b68d251af45e185711f40aade8730)
+
 ![notion scheme](/assets/notion.png)
 
 ## 3. App development
@@ -54,10 +56,38 @@ ng generate service courses
 ```
 
 ### 3.2 Code standards
+Code standards and refactoring for backend (C#):
+- Class and Method names should always be in Pascal Case
+- Method argument and Local variables should always be in Camel Case
+- Avoid the use of underscore while naming identifiers 
+- Avoid the use of System data types and prefer using the Predefined data types
+- Always prefix an interface with letter I
+- For better code indentation and readability always align the curly braces vertically
+```
+public class AssignmentController : Controller
+    {
+        public readonly IAssignmentManager manager;
+        ...
 
+        [HttpGet("Course-Assignment")]
+        [Authorize(Policy = "ALL")]
+        public async Task<IActionResult> GetCourseAssignments(int courseId)
+        {
+            var assignments = manager.GetCourseAssignments(courseId);
+
+            return Ok(assignments);
+        }     
+        ...
+     }
+```
+Code standards and refactoring for front-end:
+- Apply the single responsibility principle (SRP) to all components, services, and other symbols.
+- Do define small functions
+- Folders-by-feature structure
 
 ### 3.3 Bug reporting
 During development, several [bugs](https://github.com/alexandra-udristoiu/MDS/pull/10/commits/4254c7858a9be3d02293c68fda1c52e969e41949) were encountered:
+
 ![bug report image](/assets/bug.png)  
 
 ### 3.4 Automatation testing
