@@ -10,6 +10,7 @@ namespace MDS_BE.Managers
     {
         List<Course> GetCourses();
         List<UserCourse> GetCourseUsers(int courseId);
+        List<Course> GetCoursesForUser(string userId);
         Course GetCourseByName(string Name);
         void Create(CourseModel model);
         void Update(CourseModel model);

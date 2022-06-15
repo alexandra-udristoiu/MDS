@@ -43,6 +43,13 @@ export class CourseService {
     );
   }
 
+  getCoursesForUser(userId: string): Observable<Course[]> {
+    const url = `${this.coursesUrl}/Users/${userId}`;
+    return this.http.get<Course[]>(url, {
+      headers: this.headers,
+    });
+  }
+
   getCourse(name : string): Observable<Course> {
     const url = `${this.coursesUrl}/${name}`;
     return this.http.get<Course>(url, {

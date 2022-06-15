@@ -250,13 +250,13 @@ export const selectHandler = (request: HttpRequest<any>) => {
       if (pathname === "/Homework") {
         return getHw;
       }
-      if (pathname === "/Courses") {
-        return getCourses;
+      if (pathname === "/Courses" || pathname.startsWith("/Courses/Users")) {
+         return getCourses;
       }
       if(pathname.startsWith("/Courses")) {
         return getCourse;
       }
-      if(pathname === "/Organizations") {
+      if(pathname === "/Organizations" || pathname.startsWith("/Organizations/Users")) {
         return getOrganizations;
       }
       if(pathname.startsWith("/Organizations")) {
