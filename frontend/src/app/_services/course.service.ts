@@ -44,7 +44,7 @@ export class CourseService {
   }
 
   getCoursesForUser(userId: string): Observable<Course[]> {
-    const url = `${this.coursesUrl}/Users/${userId}`;
+    const url = `${this.coursesUrl}/User/${userId}`;
     return this.http.get<Course[]>(url, {
       headers: this.headers,
     });

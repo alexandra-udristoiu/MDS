@@ -40,7 +40,7 @@ export class OrganizationService {
   }
 
   getOrganizationsForUser(userId: string): Observable<Organization[]> {
-    const url = `${this.organizationsUrl}/Users/${userId}`;
+    const url = `${this.organizationsUrl}/User/${userId}`;
     return this.http.get<Organization[]>(url, {
       headers: this.headers,
     });
