@@ -92,5 +92,13 @@ namespace MDS_BE.Managers
 
             courseRepository.AssignUser(userId, courseId);
         }
+
+        public List<Course> GetCoursesForUser(string userId)
+        {
+            var organizations = courseRepository.GetCoursesIQueriable().
+                Where(c => c.UserCourses.Any(userCourse => userCourse.UserId == userId)).ToList();
+
+            return organizations;
+        }
     }
 }

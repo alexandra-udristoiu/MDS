@@ -48,8 +48,8 @@ export class CommentService {
   }
 
   updateComment(comment: Comment): Observable<any> {
-    const url = `${this.baseUrl}/Comments`;
-    return this.http.put<any>(url, comment, {
+    const url = `${this.baseUrl}/${comment.postId}/Comments/${comment.id}`;
+    return this.http.patch<any>(url, comment, {
       headers: this.headers,
     });
   }

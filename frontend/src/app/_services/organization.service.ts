@@ -39,6 +39,13 @@ export class OrganizationService {
     );
   }
 
+  getOrganizationsForUser(userId: string): Observable<Organization[]> {
+    const url = `${this.organizationsUrl}/Users/${userId}`;
+    return this.http.get<Organization[]>(url, {
+      headers: this.headers,
+    });
+  }
+
   getOrganization(facultyName: string): Observable<Organization> {
     const url = `${this.organizationsUrl}/${facultyName}`;
     return this.http.get<Organization>(url, {

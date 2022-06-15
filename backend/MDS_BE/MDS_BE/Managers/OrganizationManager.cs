@@ -80,5 +80,13 @@ namespace MDS_BE.Managers
 
             organizationRepository.AssignUser(userId, organizationId);
         }
+
+        public List<Organization> GetOrganizationsForUser(string userId)
+        {
+            var organizations = organizationRepository.GetOrganizationsIQueryable().
+                Where(org => org.UserOrganizations.Any(userOrg => userOrg.UserId == userId)).ToList();
+
+            return organizations;
+        }
     }
 }

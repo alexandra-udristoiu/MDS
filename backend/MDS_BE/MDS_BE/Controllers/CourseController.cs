@@ -37,6 +37,14 @@ namespace MDS_BE.Controllers
             return Ok(organization);
         }
 
+        [HttpGet("User/{userId}")]
+        [Authorize(Policy = "ALL")]
+        public async Task<IActionResult> GetCoursesForUser([FromRoute] string userId)
+        {
+            var organizations = manager.GetCoursesForUser(userId);
+            return Ok(organizations);
+        }
+
         [HttpPost]
         [Authorize(Policy = "ALL")]
         public async Task<IActionResult> Create([FromBody] CourseModel model)

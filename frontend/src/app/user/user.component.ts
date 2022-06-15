@@ -46,7 +46,7 @@ export class UserComponent implements OnInit {
         console.log(error);
       }
     );
-    this.courseService.getCourses().subscribe(
+    this.courseService.getCoursesForUser(userId).subscribe(
       (courses: Course[]) => {
         this.courses = courses;
       },
@@ -54,7 +54,7 @@ export class UserComponent implements OnInit {
         console.log(error);
       }
     );
-    this.organizationService.getOrganizations().subscribe(
+    this.organizationService.getOrganizationsForUser(userId).subscribe(
       (organizations: Organization[]) => {
         this.organizations = organizations;
       },

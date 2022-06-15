@@ -29,7 +29,7 @@ namespace MDS_BE.Controllers
         }
 
         [HttpPatch]
-        [Authorize(Policy = "Prof")]
+        [Authorize(Policy = "ALL")]
         public async Task<IActionResult> Update([FromBody] UserModel model)
         {
             var identity = (ClaimsIdentity)User.Identity;
