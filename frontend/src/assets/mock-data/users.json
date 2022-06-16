@@ -10,7 +10,7 @@
         "userName": "prof.popescu",
         "id": 2,
         "username": "Profesor Popescu",
-        "roleId": "Profesor",
+        "roleId": "Prof",
         "imgPath": "./assets/mock-data/picture.png"
     }
 ]

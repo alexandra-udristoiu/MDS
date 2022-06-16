@@ -53,7 +53,7 @@ export class CreatePostComponent implements OnInit {
       .subscribe(
         (data) => {
           this.submitted = true;
-          console.log('succes');
+          this.router.navigate(['posts']);
         },
         (error) => {
           console.log(error);

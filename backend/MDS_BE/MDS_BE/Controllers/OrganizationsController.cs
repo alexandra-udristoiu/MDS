@@ -36,6 +36,14 @@ namespace MDS_BE.Controllers
             return Ok(organization);
         }
 
+        [HttpGet("User/{userId}")]
+        [Authorize(Policy = "ALL")]
+        public async Task<IActionResult> GetOrganizationsForUser([FromRoute] string userId)
+        {
+            var organizations = manager.GetOrganizationsForUser(userId);
+            return Ok(organizations);
+        }
+
         [HttpPost]
         [Authorize(Policy = "Prof")]
         public async Task<IActionResult> Create([FromBody] OrganizationModel model)

@@ -146,9 +146,8 @@ const createPost = (request: HttpRequest<any>) => {
 };
 
 const createHw = (request: HttpRequest<any>) => {
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
   const bo = request.body?.entries();
-  const authHeader = request.headers.get('authorization');
-  const user = getUser(authHeader || '');
 
   if (!user) {
     return of(new HttpResponse({
@@ -192,8 +191,7 @@ const getUsers = (request: HttpRequest<any>) => {
 }
 
 const getHw = (request: HttpRequest<any>) => {
-  const authHeader = request.headers.get('authorization');
-  const user = getUser(authHeader || '');
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
 
   if (!user) {
     return of(new HttpResponse({
@@ -252,49 +250,49 @@ export const selectHandler = (request: HttpRequest<any>) => {
       if (pathname === "/Homework") {
         return getHw;
       }
-      if (pathname === "/Courses") {
-        return getCourses;
+      if (pathname === "/Courses" || pathname.startsWith("/Courses/Users")) {
+         return getCourses;
       }
       if(pathname.startsWith("/Courses")) {
         return getCourse;
       }
-      if(pathname === "/Organizations") {
+      if(pathname === "/Organizations" || pathname.startsWith("/Organizations/Users")) {
         return getOrganizations;
       }
       if(pathname.startsWith("/Organizations")) {
         return getOrganization;
       }
 
-        if (pathname == "/Posts") {
-          return getPosts;
-        }
+        // if (pathname == "/Posts") {
+        //   return getPosts;
+        // }
 
-        if (pathname.startsWith("/Posts") && pathname.endsWith("/Comments")) {
-          return getPostComments
-        }
+        // if (pathname.startsWith("/Posts") && pathname.endsWith("/Comments")) {
+        //   return getPostComments
+        // }
 
-        if (pathname.startsWith("/Posts")) {
-          return getPost
-        }
+        // if (pathname.startsWith("/Posts")) {
+        //   return getPost
+        // }
 
-        if (pathname == '/Users') {
-          return getUsers;
-        }
+        // if (pathname == '/Users') {
+        //   return getUsers;
+        // }
 
 
         return null;
     case 'POST':
-        if (pathname === "/api/Authentication/login") {
-            return login;
-        }
+        // if (pathname === "/api/Authentication/login") {
+        //     return login;
+        // }
         
-        if (pathname === "/api/Authentication/register") {
-            return register;
-        }
+        // if (pathname === "/api/Authentication/register") {
+        //     return register;
+        // }
 
-        if (pathname == "/Posts") {
-          return createPost
-        }
+        // if (pathname == "/Posts") {
+        //   return createPost
+        // }
 
         if (pathname.startsWith("/Users")) {
           return postUser;
@@ -314,9 +312,9 @@ export const selectHandler = (request: HttpRequest<any>) => {
 
         return null;
     case 'PUT':
-      if (pathname.startsWith("/Posts")) {
-        return updatePost;
-      }
+      // if (pathname.startsWith("/Posts")) {
+      //   return updatePost;
+      // }
       return null;
     case 'DELETE':
       return null;

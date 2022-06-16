@@ -6,4 +6,6 @@ export interface User {
     lastName: string;
     authdata?: string;
     imgPath: string;
+    name: string;
+    userName: string;
 }
