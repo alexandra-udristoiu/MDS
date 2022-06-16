@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using System;
 
 namespace MDS_BE.Entities
@@ -24,10 +23,10 @@ namespace MDS_BE.Entities
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            /* optionsBuilder
-                .UseSqlServer(@"Server=localhost,1433;Database=proiect_mds;User Id=sa;Password=someThingComplicated1234;Trusted_Connection=false;MultipleActiveResultSets=true");*/
             optionsBuilder
-                   .UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MDS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                .UseSqlServer(@"Server=localhost,1433;Database=proiect_mds;User Id=sa;Password=someThingComplicated1234;Trusted_Connection=false;MultipleActiveResultSets=true");
+            //optionsBuilder
+            //       .UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MDS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

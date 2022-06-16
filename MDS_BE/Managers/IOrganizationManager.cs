@@ -8,6 +8,7 @@ namespace MDS_BE.Managers
     {
         List<Organization> GetOrganisations();
         Organization GetOrganizationByName(string FacultyName);
+        List<Organization> GetOrganizationsForUser(string userId);
         void Create(OrganizationModel model);
         void Update(OrganizationModel model);
         void Delete(string FacultyName);

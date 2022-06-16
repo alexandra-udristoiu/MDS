@@ -1,0 +1,10 @@
+is_global = true
+build_property.TargetFramework = net5.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.PublishSingleFile = 
+build_property.IncludeAllContentForSelfExtract = 
+build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
+build_property.RootNamespace = MDS_BE
+build_property.ProjectDir = /Users/maradascalu/Desktop/Facultate/ANUL_2/Semestrul_2/Metode de Dezvoltare Software/proiect/backend/MDS_BE/MDS_BE/

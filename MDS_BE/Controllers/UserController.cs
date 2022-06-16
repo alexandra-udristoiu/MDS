@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
-using System;
 
 namespace MDS_BE.Controllers
 {
@@ -29,7 +28,7 @@ namespace MDS_BE.Controllers
         }
 
         [HttpPatch]
-        [Authorize(Policy = "Prof")]
+        [Authorize(Policy = "ALL")]
         public async Task<IActionResult> Update([FromBody] UserModel model)
         {
             var identity = (ClaimsIdentity)User.Identity;

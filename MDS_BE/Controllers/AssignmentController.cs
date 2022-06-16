@@ -3,9 +3,6 @@ using MDS_BE.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace MDS_BE.Controllers
@@ -41,7 +38,7 @@ namespace MDS_BE.Controllers
 
 
         [HttpPost]
-        [Authorize(Policy = "ALL")]
+        [Authorize(Policy = "Prof")]
         public async Task<IActionResult> Create([FromBody] AssignmentModel model)
         {
             manager.Create(model);
@@ -50,7 +47,7 @@ namespace MDS_BE.Controllers
         }
 
         [HttpPut]
-        [Authorize(Policy = "ALL")]
+        [Authorize(Policy = "Prof")]
         public async Task<IActionResult> Update([FromBody] AssignmentModel model)
         {
             try
@@ -66,7 +63,7 @@ namespace MDS_BE.Controllers
         }
 
         [HttpDelete("{AssignmentId}")]
-        [Authorize(Policy = "ALL")]
+        [Authorize(Policy = "Prof")]
         public async Task<IActionResult> Delete([FromRoute] int AssignmentId)
         {
             manager.Delete(AssignmentId);

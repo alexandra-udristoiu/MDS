@@ -12,7 +12,6 @@ namespace MDS_BE.Entities
         public virtual Register Register { get; set; }
 
         public virtual ICollection<UserCourse> UserCourses { get; set; }
-        //public virtual ICollection<UserCourse> UserCourses { get; set; }
-        //public virtual Project Project { get; set; }
+
     }
 }
