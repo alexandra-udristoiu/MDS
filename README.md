@@ -1,5 +1,5 @@
-# MDS Project
-MDS Project is an web application built using **.NET** and **Angular** Framework and it serves as the final project for the course of Software Development Methodologies. The **team** which took part in the development of the app consist of the following members: **[Acatrinei Carmen](https://github.com/carmenacatrinei)**, **[Dascălu Mara](https://github.com/MaraDascalu)**, **[Lupașcu Miruna](https://github.com/LupascuMiruna)**, **[Toader Andi](https://github.com/andidroid2000)** and **[Udriștoiu Alexandra](https://github.com/alexandra-udristoiu)**.
+# Online Academy
+**Online Academy** is an web application built using **.NET** and **Angular** Framework and it serves as the final project for the course of Software Development Methodologies. The **team** which took part in the development of the app consist of the following members: **[Acatrinei Carmen](https://github.com/carmenacatrinei)**, **[Dascălu Mara](https://github.com/MaraDascalu)**, **[Lupașcu Miruna](https://github.com/LupascuMiruna)**, **[Toader Andi](https://github.com/andidroid2000)** and **[Udriștoiu Alexandra](https://github.com/alexandra-udristoiu)**.
 
 ## 1. Application description
 This project is a web application that creates an online learning environment for people who want to deepen their knowledge in various fields at university level.
