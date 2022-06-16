@@ -21,7 +21,7 @@ The next statements are description of features that a possible user of the app 
  8. *As a teacher, I want to be able to add the courses I teach.*
  9. *As an admin, I want to be able to add new organizations.*
 10. *As a student, I want to access the course page, so that I can decide if I want to attend it.*
-11. *As a student, I want to know what materials I have read so far so that I can easily keep track of my course activity.*
+11. *As a student, I want to keep track of my assignments and their deadlines and to be able to track my progress.*
 
 ### 1.3 Implementation backbone - UML Scheme
 The below scheme shows the main entities of the application and the way they interact:
