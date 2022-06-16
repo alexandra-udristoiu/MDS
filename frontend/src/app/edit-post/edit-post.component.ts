@@ -39,18 +39,15 @@ export class EditPostComponent implements OnInit {
     this.postService.getPost(postId).subscribe(
       (data) => {
         this.post = data;
-        console.log(data);
+        this.postForm = this.formBuilder.group({
+          title: [this.post.title, Validators.required],
+          text: [this.post.text, Validators.required],
+          tags: [this.post.tags]
+        });
       },
       (error) => {
         console.log(error);
       });
-
-
-    this.postForm = this.formBuilder.group({
-      title: [this.post.title, Validators.required],
-      text: [this.post.text, Validators.required],
-      tags: [this.post.tags]
-    });
 
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/posts';
   }
@@ -72,6 +69,7 @@ export class EditPostComponent implements OnInit {
       .subscribe(
         (data) => {
           this.submitted = true;
+          this.router.navigate([this.returnUrl]);
           console.log('succes');
         },
         (error) => {

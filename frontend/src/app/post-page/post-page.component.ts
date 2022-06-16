@@ -5,6 +5,7 @@ import { Comment } from '../_models/comment';
 import { PostService } from '../_services/post.service';
 import { AuthenticationService } from '../_services/authentication.service';
 import { CommentService } from '../_services/comment.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-post-page',
@@ -16,6 +17,7 @@ export class PostPageComponent implements OnInit {
   post!: Post
 
   comments: Comment[] = []
+  pipe = new DatePipe('en-US');
 
   commentsActive: boolean = false
 
@@ -25,7 +27,9 @@ export class PostPageComponent implements OnInit {
     private postService: PostService,
     private authService: AuthenticationService,
     private commentService: CommentService
-  ) { }
+  ) { 
+    this.post = {} as Post;
+  }
 
   ngOnInit(): void {
     let postId = this.route.snapshot.params['postId'];
@@ -33,13 +37,12 @@ export class PostPageComponent implements OnInit {
     this.postService.getPost(postId).subscribe(
       (data) => {
         this.post = data;
-        console.log(data);
+        this.post.createdDate = this.pipe.transform(new Date(this.post.createdDate), 'MMM d, y, h:mm:ss a') || this.post.createdDate;
+        this.showComments();
       },
       (error) => {
         console.log(error);
       });
-
-    this.showComments()
   }
 
   showComments(): void {

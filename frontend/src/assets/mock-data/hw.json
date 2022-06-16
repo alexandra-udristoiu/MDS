@@ -1,20 +1,20 @@
 [
     {
         "id": 1,
-        "title": "homework 1",
-        "text": "Aceasta este tema 1",
+        "title": "Homework 1",
+        "text": "Ipsum dolor sit amet consectetur. Dignissim suspendisse in est ante in nibh mauris. Aliquet nec ullamcorper sit amet risus nullam eget. Vel orci porta non pulvinar neque laoreet. Sit amet luctus venenatis lectus magna fringilla. Lectus magna fringilla urna porttitor rhoncus dolor purus. Molestie nunc non blandit massa enim nec. Nisi vitae suscipit tellus mauris a diam. Nec dui nunc mattis enim ut tellus elementum sagittis. Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Id semper risus in hendrerit gravida rutrum. ",
         "createdDate": "Sat Jun 11 2022",
         "dueDate": "Sun Jun 30 2022",
         "userId": 2,
-        "userName": "prof.popescu"
+        "userName": "profesor@yahoo.com"
     },
     {
         "id": 2,
-        "title": "homework 2",
-        "text": "Aceasta este tema 2",
+        "title": "Homework 2",
+        "text": "Neque ornare aenean euismod elementum nisi quis eleifend. Nullam eget felis eget nunc lobortis. Amet purus gravida quis blandit turpis cursus in hac. Fermentum et sollicitudin ac orci phasellus. Dui sapien eget mi proin sed libero enim sed. Pellentesque habitant morbi tristique senectus et netus et malesuada. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget. Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci.",
         "createdDate": "Sat Jun 11 2022",
         "dueDate": "Sun Jun 12 2022",
         "userId": 2,
-        "userName": "prof.popescu"
+        "userName": "profesor@yahoo.com"
     }
 ]

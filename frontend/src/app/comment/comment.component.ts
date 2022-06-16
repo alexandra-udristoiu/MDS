@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Comment } from '../_models/comment';
 import { User } from '../_models/user';
@@ -15,6 +16,7 @@ export class CommentComponent implements OnInit {
   @Input() comment!: Comment;
 
   user!: User;
+  pipe = new DatePipe('en-US');
 
   isEditOn: boolean = false;
 
@@ -33,6 +35,7 @@ export class CommentComponent implements OnInit {
         console.log(error);
       }
     );
+    this.comment.createdDate = this.pipe.transform(new Date(this.comment.createdDate), 'MMM d, y, h:mm:ss a') || this.comment.createdDate;
   }
 
   get isMine(): boolean {

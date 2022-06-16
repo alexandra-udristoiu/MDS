@@ -17,7 +17,7 @@ export class UserService {
 
   headers: any;
 
-  private usersUrl = `${environment.apiUrl}/Users`;
+  private usersUrl = `${environment.apiUrl}/User`;
 
   constructor(private http: HttpClient, public authService: AuthenticationService) { 
     this.token = authService.token;
@@ -39,7 +39,7 @@ export class UserService {
   }
 
   updateUser(user: User): Observable<any> {
-    return this.http.put(this.usersUrl, user, this.httpOptions);
+    return this.http.patch(this.usersUrl, user, this.httpOptions);
   }
 
   deleteUser(id: string): Observable<any> {
