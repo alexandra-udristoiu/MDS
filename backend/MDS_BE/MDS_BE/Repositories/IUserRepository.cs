@@ -10,6 +10,6 @@ namespace MDS_BE.Repositories
         void Update(User user);
         void Delete(User user);
         void AssignOrganization(string userId, int organizationId);
-        //void AssignCourse(string userId, int courseId);
+        void AssignCourse(string userId, int courseId);
     }
 }

@@ -1,5 +1,4 @@
 ﻿using MDS_BE.Entities;
-using MDS_BE.Managers;
 using MDS_BE.Models;
 using MDS_BE.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -12,14 +11,12 @@ namespace MDS_BE.Managers
     public class UserManager : IUserManager
     {
         private readonly IUserRepository usersRepository;
-        //private readonly IPostRepository postsRepository;
-        //private readonly IUserCourseRepository userCourseRepository;
+        private readonly IUserCourseRepository userCourseRepository;
 
-        public UserManager(IUserRepository usersRepository)
+        public UserManager(IUserRepository usersRepository, IUserCourseRepository userCourseRepository)
         {
             this.usersRepository = usersRepository;
-            //this.postsRepository = postsRepository;
-            //this.userCourseRepository = userCourseRepository;
+            this.userCourseRepository = userCourseRepository;
         }
 
         public User GetUserById(string id)
@@ -58,23 +55,16 @@ namespace MDS_BE.Managers
             return cursor;
         }
 
-        //public List<Post> GetUserPosts(string id)
-        //{
-        //    return postsRepository
-        //        .GetPostsIQueryable()
-        //        .Where(p => p.UserId == id)
-        //        .ToList();
-        //}
 
-        //public List<UserCourse> GetUserCourses(string userId)
-        //{
-        //    var courses = userCourseRepository.GetUsersCoursesIQueryable()
-        //                .Where(uc => uc.UserId == userId)
-        //                .Include(x => x.Course)
-        //                .ToList();
+        public List<UserCourse> GetUserCourses(string userId)
+        {
+            var courses = userCourseRepository.GetUsersCoursesIQueryable()
+                        .Where(uc => uc.UserId == userId)
+                        .Include(x => x.Course)
+                        .ToList();
 
-        //    return courses;
-        //}
+            return courses;
+        }
 
         public void Update(UserModel model)
         {
@@ -108,7 +98,7 @@ namespace MDS_BE.Managers
                 throw new Exception();
             }
 
-            usersRepository.AssignOrganization(userId, courseId);
+            usersRepository.AssignCourse(userId, courseId);
         }
     }
 }

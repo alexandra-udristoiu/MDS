@@ -1,11 +1,9 @@
 ﻿using MDS_BE.Entities;
 using MDS_BE.Model;
 using MDS_BE.Repositories;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MDS_BE.Managers
 {

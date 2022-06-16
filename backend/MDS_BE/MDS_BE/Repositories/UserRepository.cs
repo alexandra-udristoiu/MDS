@@ -54,17 +54,17 @@ namespace MDS_BE.Repositories
             db.SaveChanges();
         }
 
-        //public void AssignCourse(string userId, int courseId)
-        //{
-        //    var userCourse = new UserCourse
-        //    {
-        //        UserId = userId,
-        //        CourseId = courseId
-        //    };
+        public void AssignCourse(string userId, int courseId)
+        {
+            var userCourse = new UserCourse
+            {
+                UserId = userId,
+                CourseId = courseId
+            };
 
-        //    db.UserCourses.Add(userCourse);
+            db.UserCourses.Add(userCourse);
 
-        //    db.SaveChanges();
-        //}
+            db.SaveChanges();
+        }
     }
 }

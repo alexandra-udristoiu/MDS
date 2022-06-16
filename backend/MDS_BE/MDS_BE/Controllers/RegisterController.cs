@@ -55,7 +55,7 @@ namespace MDS_BE.Controllers
         }
 
         [HttpPost]
-        [Authorize(Policy ="ALL")]
+        [Authorize(Policy ="Prof")]
         public async Task<IActionResult> Create([FromBody] RegisterModel model)
         {
             manager.Create(model);
@@ -64,7 +64,7 @@ namespace MDS_BE.Controllers
         }
 
         [HttpPut]
-        [Authorize(Policy ="ALL")]
+        [Authorize(Policy ="Prof")]
         public async Task<IActionResult> Update([FromBody] RegisterModel model)
         {
             try
@@ -80,7 +80,7 @@ namespace MDS_BE.Controllers
         }
 
         [HttpDelete("{UserId}/CourseName/{CourseName}")]
-        [Authorize(Policy ="ALL")]
+        [Authorize(Policy ="Prof")]
         public async Task<IActionResult> Delete([FromRoute] string UserId, string CourseName)
         {
             manager.Delete(UserId, CourseName);

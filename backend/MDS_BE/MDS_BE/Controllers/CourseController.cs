@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using MDS_BE.Managers;
 using MDS_BE.Model;
-using MDS_BE.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -38,7 +37,7 @@ namespace MDS_BE.Controllers
         }
 
         [HttpPost]
-        [Authorize(Policy = "ALL")]
+        [Authorize(Policy = "Prof")]
         public async Task<IActionResult> Create([FromBody] CourseModel model)
         {
             manager.Create(model);
@@ -47,7 +46,7 @@ namespace MDS_BE.Controllers
         }
 
         [HttpPut]
-        [Authorize(Policy = "ALL")]
+        [Authorize(Policy = "Prof")]
         public async Task<IActionResult> Update([FromBody] CourseModel model)
         {
             try
@@ -63,7 +62,7 @@ namespace MDS_BE.Controllers
         }
 
         [HttpDelete("{Name}")]
-        [Authorize(Policy = "ALL")]
+        [Authorize(Policy = "Prof")]
         public async Task<IActionResult> Delete([FromRoute] string Name)
         {
             manager.Delete(Name);
@@ -72,7 +71,7 @@ namespace MDS_BE.Controllers
         }
 
         [HttpPost("{courseId}/Users")]
-        [Authorize(Policy = "ALL")]
+        [Authorize(Policy = "Student")]
         public async Task<IActionResult> AssignUser([FromBody] CourseUserModel model, [FromRoute] int courseId)
         {
             try
