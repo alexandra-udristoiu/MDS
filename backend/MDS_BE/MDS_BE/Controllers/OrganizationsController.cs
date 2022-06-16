@@ -45,7 +45,7 @@ namespace MDS_BE.Controllers
         }
 
         [HttpPost]
-        [Authorize(Policy = "ALL")]
+        [Authorize(Policy = "Prof")]
         public async Task<IActionResult> Create([FromBody] OrganizationModel model)
         {
             manager.Create(model);
@@ -54,7 +54,7 @@ namespace MDS_BE.Controllers
         }
 
         [HttpPut]
-        [Authorize(Policy = "ALL")]
+        [Authorize(Policy = "Prof")]
         public async Task<IActionResult> Update([FromBody] OrganizationModel model)
         {
             try
@@ -65,12 +65,12 @@ namespace MDS_BE.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(403);
+                return BadRequest("This organization does not exist!");
             }
         }
 
         [HttpDelete("{FacultyName}")]
-        [Authorize(Policy = "ALL")]
+        [Authorize(Policy = "Prof")]
         public async Task<IActionResult> Delete([FromRoute] string FacultyName)
         {
             manager.Delete(FacultyName);
@@ -79,7 +79,7 @@ namespace MDS_BE.Controllers
         }
 
         [HttpPost("{organizationId}/Users")]
-        [Authorize(Policy = "ALL")]
+        [Authorize(Policy = "Student")]
         public async Task<IActionResult> AssignUser([FromBody] OrganizationUserModel model, [FromRoute] int organizationId)
         {
             try
@@ -88,7 +88,7 @@ namespace MDS_BE.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(403);
+                return BadRequest("Invalid user ID!");
             }
 
             return Ok();

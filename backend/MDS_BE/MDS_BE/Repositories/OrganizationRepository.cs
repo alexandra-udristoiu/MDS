@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using MDS_BE.Entities;
 
 namespace MDS_BE.Repositories

@@ -16,6 +16,7 @@ namespace MDS_BE.Entities
         public string Name { get; set; }
         public int Duration { get; set; }
         public string Description { get; set; }
+
         public virtual ICollection<UserCourse> UserCourses { get; set; }
         public virtual ICollection<Material> Materials { get; set; }
         public virtual ICollection<Assignment> Assignments { get; set; }
